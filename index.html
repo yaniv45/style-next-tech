@@ -1,10 +1,8 @@
-
-
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>החנות של יניב</title>
   <style>
     body {
@@ -13,18 +11,43 @@
       margin: 0;
       padding: 0;
       direction: rtl;
+      color: #333;
     }
     header {
       background-color: #222;
       color: white;
-      padding: 1rem;
+      padding: 1.5rem;
       text-align: center;
+      font-size: 1.8rem;
+      font-weight: bold;
+      letter-spacing: 0.05em;
+    }
+    nav {
+      background-color: #34495e;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px 0;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+    nav a:hover {
+      background-color: #25D366;
     }
     .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 15px;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1rem;
-      padding: 1rem;
+      gap: 20px;
     }
     .product {
       background: white;
@@ -34,76 +57,129 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      transition: transform 0.2s ease;
+    }
+    .product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
     }
     .product img {
       max-width: 100%;
       border-radius: 8px;
+      margin-bottom: 0.8rem;
+      object-fit: cover;
+      height: 180px;
     }
     .product h3 {
-      margin: 0.5rem 0 0.25rem;
+      margin: 0.3rem 0 0.5rem;
+      font-size: 1.3rem;
+      color: #222;
     }
     .product p {
-      font-size: 0.9rem;
-      color: #444;
+      font-size: 1rem;
+      color: #555;
+      flex-grow: 1;
     }
     .price {
       font-weight: bold;
-      margin-top: 0.5rem;
+      margin: 0.7rem 0;
+      font-size: 1.2rem;
+      color: #25D366;
     }
     .order-btn {
-      margin-top: auto;
       background: #25D366;
       color: white;
-      padding: 0.5rem;
+      padding: 0.7rem;
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
       cursor: pointer;
-      font-size: 1rem;
+      font-size: 1.1rem;
       text-align: center;
       text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    .order-btn:hover {
+      background-color: #1ebe57;
     }
     footer {
       text-align: center;
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       padding: 1rem;
       color: #888;
+      background-color: #222;
+      margin-top: 40px;
+    }
+    footer a {
+      color: #25D366;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>החנות של יניב</h1>
-  </header>
-  <div class="container">
 
-    <div class="product">
-      <img src="https://via.placeholder.com/300x200?text=%D7%90%D7%A7%D7%93%D7%97+%D7%92%D7%9C%D7%99" alt="אקדח ג'לי חשמלי">
+<header>החנות של יניב</header>
+
+<nav>
+  <a href="#products">מוצרים</a>
+  <a href="#contact">צור קשר</a>
+  <a href="#about">אודות</a>
+</nav>
+
+<main>
+  <section id="products" class="container">
+
+    <article class="product">
+      <img src="https://via.placeholder.com/300x200?text=%D7%90%D7%A7%D7%93%D7%97+%D7%92%D7%9C%D7%99" alt="אקדח ג'לי חשמלי" />
       <h3>אקדח ג'לי חשמלי</h3>
       <p>כדור צעצוע ג'ל חשמלי 3.7V לקיץ</p>
       <div class="price">25 ש"ח</div>
-      <a class="order-btn" href="https://wa.me/972548673111?text=שלום, אני רוצה להזמין את אקדח ג'לי חשמלי">הזמן עכשיו בביט</a>
-    </div>
+      <a class="order-btn" href="https://wa.me/972548673111?text=שלום, אני רוצה להזמין את אקדח ג'לי חשמלי" target="_blank" rel="noopener noreferrer">הזמן עכשיו בביט</a>
+    </article>
 
-    <div class="product">
-      <img src="https://via.placeholder.com/300x200?text=%D7%A9%D7%A2%D7%95%D7%9F+%D7%97%D7%9B%D7%9D" alt="שעון חכם">
+    <article class="product">
+      <img src="https://via.placeholder.com/300x200?text=%D7%A9%D7%A2%D7%95%D7%9F+%D7%97%D7%9B%D7%9D" alt="שעון חכם" />
       <h3>שעון חכם</h3>
-      <p>Galaxy Watch 7 Ultra 47mm חדש עם שיחת Bluetooth לגברים, GPS, NFC, מסך AMOLED, מעקב כושר ובריאות. מתאים ל-Samsung.</p>
+      <p>Galaxy Watch 7 Ultra 47mm חדש עם שיחת Bluetooth לגברים, GPS, NFC, מסך AMOLED, מעקב כושר ובריאות.</p>
       <div class="price">100 ש"ח</div>
-      <a class="order-btn" href="https://wa.me/972548673111?text=שלום, אני רוצה להזמין את השעון החכם">הזמן עכשיו בביט</a>
-    </div>
+      <a class="order-btn" href="https://wa.me/972548673111?text=שלום, אני רוצה להזמין את שעון חכם" target="_blank" rel="noopener noreferrer">הזמן עכשיו בביט</a>
+    </article>
 
-    <div class="product">
-      <img src="https://via.placeholder.com/300x200?text=%D7%A8%D7%9E%D7%A7%D7%95%D7%9C" alt="רמקול">
+    <article class="product">
+      <img src="https://via.placeholder.com/300x200?text=%D7%A8%D7%9E%D7%A7%D7%95%D7%9C" alt="רמקול" />
       <h3>רמקול</h3>
-      <p>רמקול Bluetooth Soundcore Select 4 Go, נייד במיוחד, עם זמן השמעה של עד 20 שעות, עמיד למים ואבק IP67, צף</p>
+      <p>רמקול Bluetooth Soundcore Select 4 Go, נייד, עם זמן השמעה של עד 20 שעות, עמיד למים ואבק IP67, צף</p>
       <div class="price">110 ש"ח</div>
-      <a class="order-btn" href="https://wa.me/972548673111?text=שלום, אני רוצה להזמין את הרמקול">הזמן עכשיו בביט</a>
-    </div>
+      <a class="order-btn" href="https://wa.me/972548673111?text=שלום, אני רוצה להזמין את רמקול" target="_blank" rel="noopener noreferrer">הזמן עכשיו בביט</a>
+    </article>
 
-  </div>
-  <footer>
-    שירות לקוחות: <a href="https://wa.me/972548673111">וואטסאפ</a> | תשלום בביט בלבד
-  </footer>
+  </section>
+
+  <section id="about" style="max-width: 1000px; margin: 40px auto; padding: 0 15px; direction: rtl;">
+    <h2 style="text-align: center; margin-bottom: 15px;">אודות החנות</h2>
+    <p style="text-align: center; font-size: 1.1rem; color: #444;">
+      החנות של יניב מתמחה במוצרים איכותיים במחירים משתלמים. השירות הוא מעל לכל והלקוחות שלנו תמיד בראש העדיפות.
+    </p>
+  </section>
+
+  <section id="contact" style="max-width: 1000px; margin: 40px auto; padding: 0 15px; direction: rtl;">
+    <h2 style="text-align: center; margin-bottom: 15px;">שירות לקוחות</h2>
+    <p style="text-align: center; font-size: 1.1rem; color: #444;">
+      לשאלות והזמנות ניתן לפנות אלינו בוואטסאפ:  
+      <a href="https://wa.me/972548673111" target="_blank" rel="noopener noreferrer" style="color:#25D366; font-weight:bold;">054-867-3111</a>
+    </p>
+    <p style="text-align: center; font-size: 1rem; color: #888; margin-top: 10px;">
+      התשלום נעשה באמצעות ביט בלבד.
+    </p>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 יניב אסרף | החנות של יניב
+</footer>
+
 </body>
 </html>
-
