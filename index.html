@@ -1,215 +1,233 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>style next tech</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Style Next Tech</title>
+  <link href="https://fonts.googleapis.com/css2?family=Alef&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f8f8f8;
+      font-family: 'Alef', sans-serif;
       margin: 0;
-      padding: 0;
-      direction: rtl;
-      color: #333;
+      background-color: #f9f9f9;
+      scroll-behavior: smooth;
     }
-    header {
-      background-color: #222;
+    header, footer {
+      background-color: #333;
       color: white;
-      padding: 1.5rem;
       text-align: center;
-      font-size: 1.8rem;
-      font-weight: bold;
-      letter-spacing: 0.05em;
-    }
-    nav {
-      background-color: #34495e;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      padding: 10px 0;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.1rem;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      transition: background-color 0.3s ease;
-    }
-    nav a:hover {
-      background-color: #25D366;
+      padding: 20px 0;
     }
     .container {
       max-width: 1000px;
-      margin: 30px auto;
-      padding: 0 15px;
+      margin: auto;
+      padding: 20px;
+    }
+    .search-box {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .search-box input {
+      width: 80%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .product-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 20px;
     }
     .product {
-      background: white;
-      border-radius: 12px;
-      padding: 1rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: transform 0.2s ease;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 15px;
+      transition: transform 0.2s;
     }
     .product:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-    }
-    .product img {
-      max-width: 100%;
-      border-radius: 8px;
-      margin-bottom: 0.8rem;
-      object-fit: cover;
-      height: 180px;
+      transform: scale(1.02);
     }
     .product h3 {
-      margin: 0.3rem 0 0.5rem;
-      font-size: 1.3rem;
-      color: #222;
+      margin-top: 0;
+      color: #333;
     }
     .product p {
-      font-size: 1rem;
-      color: #555;
-      flex-grow: 1;
+      margin: 10px 0;
     }
-    .price {
-      font-weight: bold;
-      margin: 0.7rem 0;
-      font-size: 1.2rem;
-      color: #25D366;
-    }
-    .order-btn {
-      background: #25D366;
+    .hot-deal {
+      background-color: #ff5722;
       color: white;
-      padding: 0.7rem;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 1.1rem;
-      text-align: center;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-    }
-    .order-btn:hover {
-      background-color: #1ebe57;
-    }
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      padding: 1rem;
-      color: #888;
-      background-color: #222;
-      margin-top: 40px;
-    }
-    footer a {
-      color: #25D366;
-      text-decoration: none;
+      padding: 5px 10px;
+      display: inline-block;
+      border-radius: 4px;
       font-weight: bold;
     }
-    footer a:hover {
-      text-decoration: underline;
+    .review {
+      background: #e0f7fa;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+    }
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: #333;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      display: none;
+    }
+    .categories {
+      margin: 30px 0;
+      text-align: center;
+    }
+    .categories button {
+      margin: 5px;
+      padding: 10px 20px;
+      border: none;
+      background-color: #2196f3;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>Style Next Tech</h1>
+    <p>החנות הטכנולוגית הכי משתלמת!</p>
+  </header>
 
-<header>style next tech</header>
+  <div class="container">
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="חפש מוצר...">
+    </div>
 
-<nav>
-  <a href="#products">מוצרים</a>
-  <a href="#contact">צור קשר</a>
-  <a href="#about">אודות</a>
-</nav>
+    <div class="categories">
+      <button onclick="filterCategory('all')">הכל</button>
+      <button onclick="filterCategory('hot')">מבצעים חמים</button>
+      <button onclick="filterCategory('wearables')">לבישים</button>
+      <button onclick="filterCategory('fitness')">כושר ובריאות</button>
+      <button onclick="filterCategory('toys')">צעצועים</button>
+    </div>
 
-<main>
-  <section id="products" class="container">
+    <div id="products" class="product-grid">
+      <!-- מוצרים יתווספו כאן -->
+    </div>
 
-    <article class="product">
-      <img src="https://via.placeholder.com/300x200?text=משקפי+שמש+חכמות" alt="משקפי שמש חכמות" />
-      <h3>משקפי שמש חכמות</h3>
-      <p>חכם Bluetooth v5.3 משקפי שמש להתקשר ספורט חיצונית אוזניות טכנולוגיה שחור אנטי מגע v עבור גברים</p>
-      <div class="price">50 ש"ח</div>
-      <a class="order-btn" href="https://wa.me/972548673111?text=שלום, אני רוצה להזמין את משקפי שמש חכמות">הזמן עכשיו בביט</a>
-    </article>
+    <h2 style="text-align:center; margin-top: 40px;">חוות דעת של לקוחות</h2>
+    <div class="review">מוצר מדהים, הגיע מהר! - דנה מ.</div>
+    <div class="review">שירות מצוין, ממליץ בחום. - רועי ש.</div>
 
-    <article class="product">
-      <img src="https://via.placeholder.com/300x200?text=אוזניות+בלוטוס" alt="אוזניות בלוטוס קטנות" />
-      <h3>אוזניות בלוטוס קטנות</h3>
-      <p>אוזניות בלוטוס מקוריות Air Pro Bluetooth 5.3 אוריקולרים אוזניות</p>
-      <div class="price">30 ש"ח</div>
-      <a class="order-btn" href="https://wa.me/972548673111?text=שלום, אני רוצה להזמין את אוזניות בלוטוס קטנות">הזמן עכשיו בביט</a>
-    </article>
+    <section id="tracking">
+      <h2 style="text-align: center;">מעקב הזמנה</h2>
+      <p style="text-align: center;">קיבלת מאיתנו קישור מעקב? לחץ כאן לעקוב בדואר ישראל:</p>
+      <div style="text-align:center; margin-top: 10px;">
+        <a href="https://mypost.postil.com" target="_blank" style="background-color: #25D366; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none;">מעקב בדואר ישראל</a>
+      </div>
+    </section>
+  </div>
 
-    <article class="product">
-      <img src="https://via.placeholder.com/300x200?text=רובה+ג'לי" alt="רובה ג'לי" />
-      <h3>רובה גדול כדורי ג'לי חשמלי</h3>
-      <p>צעצוע נשק M416 לחוץ חשמלי בלסטר ירי ספורט ג'ל כדור מים קיץ צעצועים למשחק אינטראקטיבי</p>
-      <div class="price">100 ש"ח</div>
-      <a class="order-btn" href="https://wa.me/972548673111?text=שלום, אני רוצה להזמין את רובה ג'לי">הזמן עכשיו בביט</a>
-    </article>
+  <footer>
+    <p>© 2025 style next tech | כל הזכויות שמורות</p>
+  </footer>
 
-    <article class="product">
-      <img src="https://via.placeholder.com/300x200?text=שעון+חכם" alt="שעון חכם" />
-      <h3>שעון חכם 10 אולטרה</h3>
-      <p>שעון חכם 10 אולטרה x 3 Pro MAX Gen2 49mm מסך Amoled שעון חכם עם קצב רענון טעינה אלחוטית לגברים ונשים לספורט 2025 חדש</p>
-      <div class="price">120 ש"ח</div>
-      <a class="order-btn" href="https://wa.me/972548673111?text=שלום, אני רוצה להזמין את שעון חכם">הזמן עכשיו בביט</a>
-    </article>
+  <div class="back-to-top" id="backToTop" onclick="scrollToTop()">חזור למעלה ↑</div>
 
-    <article class="product">
-      <img src="https://via.placeholder.com/300x200?text=מכשיר+עיסוי" alt="מכשיר עיסוי" />
-      <h3>מכשיר עיסוי</h3>
-      <p>מקל עיסוי מיני מכונת פאשיה להרפיה שרירית מקל רוד עיסוי פרקושן ציוד כושר תפיסת צוואר פאשיה חשמלי</p>
-      <div class="price">100 ש"ח</div>
-      <a class="order-btn" href="https://wa.me/972548673111?text=שלום, אני רוצה להזמין את מכשיר העיסוי">הזמן עכשיו בביט</a>
-    </article>
+  <script>
+    const products = [
+      {
+        name: "משקפי שמש חכמות",
+        category: "wearables",
+        description: "חכם Bluetooth v5.3 משקפי שמש להתקשר ספורט חיצונית אוזניות טכנולוגיה שחור",
+        price: 50,
+        hot: true
+      },
+      {
+        name: "אוזניות בלוטוס קטנות",
+        category: "wearables",
+        description: "אוזניות בלוטוס מקוריות Air Pro Bluetooth 5.3 אוריקולרים",
+        price: 30,
+        hot: false
+      },
+      {
+        name: "רובה גדול כדורי ג'לי",
+        category: "toys",
+        description: "צעצוע נשק M416 חשמלי בלסטר ירי ספורט ג'ל כדור מים",
+        price: 100,
+        hot: true
+      },
+      {
+        name: "שעון חכם",
+        category: "wearables",
+        description: "שעון חכם Ultra x 3 Pro MAX Gen2 49mm מסך Amoled 2025 חדש",
+        price: 120,
+        hot: true
+      },
+      {
+        name: "מכשיר עיסוי",
+        category: "fitness",
+        description: "מכונת פאשיה להרפיה שרירית חשמלי",
+        price: 100,
+        hot: false
+      },
+      {
+        name: "מכונת בוקס מוזיקה",
+        category: "fitness",
+        description: "מכונת בוקס מוזיקה 2025 עם Bluetooth למבוגרים",
+        price: 285,
+        hot: false
+      },
+      {
+        name: "כדור מתאמן לכוח",
+        category: "fitness",
+        description: "כדור כוח ג'ירוסקופי LED לכושר יד",
+        price: 20,
+        hot: false
+      }
+    ];
 
-    <article class="product">
-      <img src="https://via.placeholder.com/300x200?text=בוקס+מוזיקה" alt="בוקס מוזיקה" />
-      <h3>מכונת בוקס מוזיקה</h3>
-      <p>מכונת בוקס מוזיקה חדשה לשנת 2025 עם Bluetooth, מטרה אלקטרונית למבוגרים לתליה על הקיר, ציוד למטרה לגימנסיה ולבית</p>
-      <div class="price">285 ש"ח</div>
-      <a class="order-btn" href="https://wa.me/972548673111?text=שלום, אני רוצה להזמין את מכונת בוקס מוזיקה">הזמן עכשיו בביט</a>
-    </article>
+    function displayProducts(filter = 'all') {
+      const container = document.getElementById("products");
+      container.innerHTML = "";
+      const search = document.getElementById("searchInput").value.toLowerCase();
 
-    <article class="product">
-      <img src="https://via.placeholder.com/300x200?text=כדור+כושר" alt="כדור מתאמן לכוח" />
-      <h3>כדור מתאמן לכוח</h3>
-      <p>כדור מתאמן לכוח ג'ירוסקופי LED עם טווח התחלה אוטומטי, כדור כוח למפרק היד, היד והשרירים, ציוד כושר עם לד</p>
-      <div class="price">20 ש"ח</div>
-      <a class="order-btn" href="https://wa.me/972548673111?text=שלום, אני רוצה להזמין את כדור מתאמן לכוח">הזמן עכשיו בביט</a>
-    </article>
+      products.filter(p => (filter === 'all' || (filter === 'hot' && p.hot) || p.category === filter)).forEach(p => {
+        if (p.name.toLowerCase().includes(search) || p.description.toLowerCase().includes(search)) {
+          container.innerHTML += `
+            <div class="product">
+              <h3>${p.name}</h3>
+              ${p.hot ? '<span class="hot-deal">מבצע חם!</span>' : ''}
+              <p>${p.description}</p>
+              <p><strong>מחיר:</strong> ${p.price} ש"ח</p>
+            </div>`;
+        }
+      });
+    }
 
-  </section>
+    document.getElementById("searchInput").addEventListener("input", () => displayProducts());
+    displayProducts();
 
-  <section id="about" style="max-width: 1000px; margin: 40px auto; padding: 0 15px;">
-    <h2 style="text-align: center; margin-bottom: 15px;">אודות החנות</h2>
-    <p style="text-align: center; font-size: 1.1rem; color: #444;">
-      החנות שלנו מתמחה במוצרים מתקדמים במחירים משתלמים. אנחנו מאמינים בשירות אישי, איכות, ואמינות.
-    </p>
-  </section>
+    function filterCategory(cat) {
+      displayProducts(cat);
+    }
 
-  <section id="contact" style="max-width: 1000px; margin: 40px auto; padding: 0 15px;">
-    <h2 style="text-align: center; margin-bottom: 15px;">צור קשר</h2>
-    <p style="text-align: center; font-size: 1.1rem; color: #444;">
-      להזמנות, שאלות ושירות לקוחות ניתן לפנות אלינו בוואטסאפ:
-      <a href="https://wa.me/972548673111" style="color:#25D366; font-weight:bold;">054-867-3111</a>
-    </p>
-    <p style="text-align: center; font-size: 1rem; color: #888;">התשלום דרך ביט בלבד.</p>
-  </section>
-</main>
+    window.addEventListener("scroll", () => {
+      const btn = document.getElementById("backToTop");
+      if (window.scrollY > 300) {
+        btn.style.display = "block";
+      } else {
+        btn.style.display = "none";
+      }
+    });
 
-<footer>
-  &copy; 2025 יניב אסרף | style next tech
-</footer>
-
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
 </body>
 </html>
