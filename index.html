@@ -1,166 +1,233 @@
-# Save the updated HTML code with all the features integrated into a file
-
-html_code = """
 <!DOCTYPE html>
-<html lang="he">
+<html lang="he" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Style Next Tech</title>
+  <link href="https://fonts.googleapis.com/css2?family=Alef&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Alef', sans-serif;
       margin: 0;
-      padding: 0;
-      background-color: #f5f5f5;
+      background-color: #f9f9f9;
+      scroll-behavior: smooth;
     }
-    header {
-      background-color: #222;
+    header, footer {
+      background-color: #333;
       color: white;
-      padding: 10px 20px;
       text-align: center;
+      padding: 20px 0;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+    .search-box {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .search-box input {
+      width: 80%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
     }
     .product {
       background-color: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      margin: 20px auto;
-      padding: 20px;
-      max-width: 500px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 15px;
+      transition: transform 0.2s;
     }
-    .product h2 {
+    .product:hover {
+      transform: scale(1.02);
+    }
+    .product h3 {
       margin-top: 0;
+      color: #333;
     }
     .product p {
-      margin: 8px 0;
+      margin: 10px 0;
     }
-    .product .price {
-      font-weight: bold;
-      color: green;
-    }
-    .product a {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 15px;
-      background-color: #25D366;
+    .hot-deal {
+      background-color: #ff5722;
       color: white;
-      text-decoration: none;
+      padding: 5px 10px;
+      display: inline-block;
       border-radius: 4px;
+      font-weight: bold;
     }
     .review {
-      background-color: #f8f8f8;
+      background: #e0f7fa;
       padding: 10px;
-      margin-top: 10px;
-      border-left: 4px solid #4CAF50;
-      border-radius: 8px;
-      font-size: 14px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin: 10px 0;
+      border-radius: 5px;
     }
-    .review-text {
-      margin: 0;
-    }
-    .review-author {
-      font-weight: bold;
-      color: #555;
-      margin-top: 5px;
-    }
-    .top-button {
+    .back-to-top {
       position: fixed;
       bottom: 20px;
-      right: 20px;
-      background-color: #555;
+      left: 20px;
+      background: #333;
       color: white;
-      border: none;
-      padding: 10px;
-      border-radius: 50%;
+      padding: 10px 15px;
+      border-radius: 5px;
       cursor: pointer;
       display: none;
     }
-    .search-container {
+    .categories {
+      margin: 30px 0;
       text-align: center;
-      margin: 20px;
     }
-    .search-container input {
-      padding: 10px;
-      width: 60%;
-      font-size: 16px;
+    .categories button {
+      margin: 5px;
+      padding: 10px 20px;
+      border: none;
+      background-color: #2196f3;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Style Next Tech</h1>
-    <p>טלפון להזמנות ותמיכה: 054-8673111</p>
+    <p>החנות הטכנולוגית הכי משתלמת!</p>
   </header>
 
-  <div class="search-container">
-    <input type="text" id="searchInput" onkeyup="searchProducts()" placeholder="חפש מוצר...">
-  </div>
-
-  <div id="products">
-    <div class="product" data-name="אוזניות בלוטוס קטנות">
-      <h2>אוזניות בלוטוס קטנות</h2>
-      <p>אוזניות בלוטוס מקוריות Air Pro Bluetooth 5.3 אוריקולרים אוזניות</p>
-      <p class="price">מחיר: 30 ₪</p>
-      <a href="https://wa.me/972548673111" target="_blank">הזמן עכשיו</a>
-      <a href="https://mypost.postil.com" target="_blank">עקוב אחר ההזמנה</a>
-      <div class="review-group">
-        <div class="review" data-day="0">
-          <p class="review-text">איכות מדהימה, שווה כל שקל.</p>
-          <p class="review-author">★ ★ ★ ★ ☆ — אורן ש.</p>
-        </div>
-        <div class="review" data-day="1">
-          <p class="review-text">מוצר קטן ונוח מאוד!</p>
-          <p class="review-author">★ ★ ★ ★ ★ — עדי ל.</p>
-        </div>
-        <div class="review" data-day="2">
-          <p class="review-text">משתמש בו כל הזמן.</p>
-          <p class="review-author">★ ★ ★ ★ ☆ — דני כ.</p>
-        </div>
-      </div>
+  <div class="container">
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="חפש מוצר...">
     </div>
+
+    <div class="categories">
+      <button onclick="filterCategory('all')">הכל</button>
+      <button onclick="filterCategory('hot')">מבצעים חמים</button>
+      <button onclick="filterCategory('wearables')">לבישים</button>
+      <button onclick="filterCategory('fitness')">כושר ובריאות</button>
+      <button onclick="filterCategory('toys')">צעצועים</button>
+    </div>
+
+    <div id="products" class="product-grid">
+      <!-- מוצרים יתווספו כאן -->
+    </div>
+
+    <h2 style="text-align:center; margin-top: 40px;">חוות דעת של לקוחות</h2>
+    <div class="review">מוצר מדהים, הגיע מהר! - דנה מ.</div>
+    <div class="review">שירות מצוין, ממליץ בחום. - רועי ש.</div>
+
+    <section id="tracking">
+      <h2 style="text-align: center;">מעקב הזמנה</h2>
+      <p style="text-align: center;">קיבלת מאיתנו קישור מעקב? לחץ כאן לעקוב בדואר ישראל:</p>
+      <div style="text-align:center; margin-top: 10px;">
+        <a href="https://mypost.postil.com" target="_blank" style="background-color: #25D366; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none;">מעקב בדואר ישראל</a>
+      </div>
+    </section>
   </div>
 
-  <button onclick="topFunction()" id="topBtn" class="top-button">↑</button>
+  <footer>
+    <p>© 2025 style next tech | כל הזכויות שמורות</p>
+  </footer>
+
+  <div class="back-to-top" id="backToTop" onclick="scrollToTop()">חזור למעלה ↑</div>
 
   <script>
-    // כפתור חזור למעלה
-    const topBtn = document.getElementById("topBtn");
-    window.onscroll = function () {
-      topBtn.style.display = window.scrollY > 300 ? "block" : "none";
-    };
-    function topFunction() {
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
-    }
+    const products = [
+      {
+        name: "משקפי שמש חכמות",
+        category: "wearables",
+        description: "חכם Bluetooth v5.3 משקפי שמש להתקשר ספורט חיצונית אוזניות טכנולוגיה שחור",
+        price: 50,
+        hot: true
+      },
+      {
+        name: "אוזניות בלוטוס קטנות",
+        category: "wearables",
+        description: "אוזניות בלוטוס מקוריות Air Pro Bluetooth 5.3 אוריקולרים",
+        price: 30,
+        hot: false
+      },
+      {
+        name: "רובה גדול כדורי ג'לי",
+        category: "toys",
+        description: "צעצוע נשק M416 חשמלי בלסטר ירי ספורט ג'ל כדור מים",
+        price: 100,
+        hot: true
+      },
+      {
+        name: "שעון חכם",
+        category: "wearables",
+        description: "שעון חכם Ultra x 3 Pro MAX Gen2 49mm מסך Amoled 2025 חדש",
+        price: 120,
+        hot: true
+      },
+      {
+        name: "מכשיר עיסוי",
+        category: "fitness",
+        description: "מכונת פאשיה להרפיה שרירית חשמלי",
+        price: 100,
+        hot: false
+      },
+      {
+        name: "מכונת בוקס מוזיקה",
+        category: "fitness",
+        description: "מכונת בוקס מוזיקה 2025 עם Bluetooth למבוגרים",
+        price: 285,
+        hot: false
+      },
+      {
+        name: "כדור מתאמן לכוח",
+        category: "fitness",
+        description: "כדור כוח ג'ירוסקופי LED לכושר יד",
+        price: 20,
+        hot: false
+      }
+    ];
 
-    // חיפוש מוצרים
-    function searchProducts() {
-      const input = document.getElementById("searchInput").value.toLowerCase();
-      const products = document.querySelectorAll(".product");
-      products.forEach(product => {
-        const name = product.getAttribute("data-name").toLowerCase();
-        product.style.display = name.includes(input) ? "" : "none";
+    function displayProducts(filter = 'all') {
+      const container = document.getElementById("products");
+      container.innerHTML = "";
+      const search = document.getElementById("searchInput").value.toLowerCase();
+
+      products.filter(p => (filter === 'all' || (filter === 'hot' && p.hot) || p.category === filter)).forEach(p => {
+        if (p.name.toLowerCase().includes(search) || p.description.toLowerCase().includes(search)) {
+          container.innerHTML += `
+            <div class="product">
+              <h3>${p.name}</h3>
+              ${p.hot ? '<span class="hot-deal">מבצע חם!</span>' : ''}
+              <p>${p.description}</p>
+              <p><strong>מחיר:</strong> ${p.price} ש"ח</p>
+            </div>`;
+        }
       });
     }
 
-    // הצגת חוות דעת לפי יום
-    document.addEventListener("DOMContentLoaded", function () {
-      const today = new Date().getDay();
-      document.querySelectorAll('.review-group').forEach(group => {
-        group.querySelectorAll('.review').forEach(review => {
-          review.style.display = review.getAttribute('data-day') == today ? 'block' : 'none';
-        });
-      });
+    document.getElementById("searchInput").addEventListener("input", () => displayProducts());
+    displayProducts();
+
+    function filterCategory(cat) {
+      displayProducts(cat);
+    }
+
+    window.addEventListener("scroll", () => {
+      const btn = document.getElementById("backToTop");
+      if (window.scrollY > 300) {
+        btn.style.display = "block";
+      } else {
+        btn.style.display = "none";
+      }
     });
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   </script>
 </body>
 </html>
-"""
-
-# Save the HTML code to a file
-file_path = "/mnt/data/store-yaniv-final.html"
-with open(file_path, "w", encoding="utf-8") as file:
-    file.write(html_code)
-
-file_path  # Return the path for download link
