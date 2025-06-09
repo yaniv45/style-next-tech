@@ -156,9 +156,22 @@
     <a href="#contact">צור קשר</a>
   </nav>
 
-  <div class="search-container">
-    <input type="text" id="searchInput" placeholder="חפש מוצר..." onkeyup="searchProducts()">
-  </div>
+ <script>
+  function searchProducts() {
+    let input = document.getElementById('searchInput').value.toLowerCase();
+    let products = document.getElementsByClassName('product');
+
+    for (let i = 0; i < products.length; i++) {
+      let title = products[i].querySelector('.product-title').innerText.toLowerCase();
+      if (title.includes(input)) {
+        products[i].style.display = '';
+      } else {
+        products[i].style.display = 'none';
+      }
+    }
+  }
+</script>
+
 
   <section id="products" class="products" dir="rtl">
     <!-- המוצרים יוזנו כאן -->
