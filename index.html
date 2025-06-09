@@ -13,6 +13,25 @@
       padding: 0;
       direction: rtl;
       color: #333;
+      #toTopBtn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  display: none;
+  background-color: #25D366;
+  color: white;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease;
+}
+#toTopBtn:hover {
+  background-color: #1ebe57;
+}
+
     }
     header {
       background-color: #222;
@@ -208,6 +227,18 @@
 <footer>
   &copy; 2025 יניב אסרף | החנות של יניב
 </footer>
+<!-- כפתור חזרה לראש הדף -->
+<button onclick="scrollToTop()" id="toTopBtn" title="חזרה לראש הדף">↑</button>
+
+<script>
+  const toTopBtn = document.getElementById("toTopBtn");
+  window.onscroll = function () {
+    toTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
+  };
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+</script>
 
 </body>
 </html>
