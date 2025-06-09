@@ -1,233 +1,245 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="he">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Style Next Tech</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>style next tech</title>
   <link href="https://fonts.googleapis.com/css2?family=Alef&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Alef', sans-serif;
       margin: 0;
+      padding: 0;
+      direction: rtl;
       background-color: #f9f9f9;
-      scroll-behavior: smooth;
     }
-    header, footer {
-      background-color: #333;
+
+    header {
+      background-color: #222;
       color: white;
+      padding: 20px;
       text-align: center;
-      padding: 20px 0;
     }
-    .container {
-      max-width: 1000px;
-      margin: auto;
+
+    h1 {
+      margin: 0;
+    }
+
+    nav {
+      background-color: #444;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+    }
+
+    .search-container {
+      text-align: center;
       padding: 20px;
     }
-    .search-box {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .search-box input {
-      width: 80%;
+
+    input[type="text"] {
       padding: 10px;
-      font-size: 16px;
+      width: 250px;
       border-radius: 5px;
       border: 1px solid #ccc;
     }
-    .product-grid {
+
+    .products {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
+      padding: 20px;
     }
+
     .product {
       background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       transition: transform 0.2s;
     }
+
     .product:hover {
-      transform: scale(1.02);
+      transform: scale(1.03);
     }
+
     .product h3 {
-      margin-top: 0;
-      color: #333;
+      margin: 0 0 10px;
     }
+
     .product p {
-      margin: 10px 0;
+      margin: 5px 0;
     }
-    .hot-deal {
-      background-color: #ff5722;
-      color: white;
-      padding: 5px 10px;
+
+    .contact, .tracking-link, .reviews-section {
+      padding: 30px;
+      text-align: center;
+    }
+
+    .tracking-link a {
       display: inline-block;
-      border-radius: 4px;
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
       font-weight: bold;
+      text-decoration: none;
+      transition: background-color 0.3s;
     }
-    .review {
-      background: #e0f7fa;
+
+    .tracking-link a:hover {
+      background-color: #0056b3;
+    }
+
+    .reviews-section {
+      background-color: #f1f1f1;
+    }
+
+    .review-card {
+      background: white;
+      padding: 20px;
+      margin: 10px auto;
+      max-width: 500px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .review-text {
+      font-size: 18px;
+      font-style: italic;
+    }
+
+    .review-author {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #ff9900;
+    }
+
+    footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
       padding: 10px;
-      margin: 10px 0;
-      border-radius: 5px;
     }
-    .back-to-top {
+
+    #backToTop {
       position: fixed;
       bottom: 20px;
       left: 20px;
-      background: #333;
+      background-color: #007bff;
       color: white;
-      padding: 10px 15px;
-      border-radius: 5px;
+      border: none;
+      padding: 10px;
+      border-radius: 50%;
+      font-size: 18px;
       cursor: pointer;
       display: none;
-    }
-    .categories {
-      margin: 30px 0;
-      text-align: center;
-    }
-    .categories button {
-      margin: 5px;
-      padding: 10px 20px;
-      border: none;
-      background-color: #2196f3;
-      color: white;
-      border-radius: 5px;
-      cursor: pointer;
     }
   </style>
 </head>
 <body>
+
   <header>
     <h1>Style Next Tech</h1>
-    <p>החנות הטכנולוגית הכי משתלמת!</p>
+    <p>החנות של יניב - טלפון: 050-0000000</p>
   </header>
 
-  <div class="container">
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="חפש מוצר...">
-    </div>
+  <nav>
+    <a href="#products">מוצרים</a>
+    <a href="#tracking">מעקב</a>
+    <a href="#reviews">חוות דעת</a>
+    <a href="#contact">צור קשר</a>
+  </nav>
 
-    <div class="categories">
-      <button onclick="filterCategory('all')">הכל</button>
-      <button onclick="filterCategory('hot')">מבצעים חמים</button>
-      <button onclick="filterCategory('wearables')">לבישים</button>
-      <button onclick="filterCategory('fitness')">כושר ובריאות</button>
-      <button onclick="filterCategory('toys')">צעצועים</button>
-    </div>
-
-    <div id="products" class="product-grid">
-      <!-- מוצרים יתווספו כאן -->
-    </div>
-
-    <h2 style="text-align:center; margin-top: 40px;">חוות דעת של לקוחות</h2>
-    <div class="review">מוצר מדהים, הגיע מהר! - דנה מ.</div>
-    <div class="review">שירות מצוין, ממליץ בחום. - רועי ש.</div>
-
-    <section id="tracking">
-      <h2 style="text-align: center;">מעקב הזמנה</h2>
-      <p style="text-align: center;">קיבלת מאיתנו קישור מעקב? לחץ כאן לעקוב בדואר ישראל:</p>
-      <div style="text-align:center; margin-top: 10px;">
-        <a href="https://mypost.postil.com" target="_blank" style="background-color: #25D366; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none;">מעקב בדואר ישראל</a>
-      </div>
-    </section>
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="חפש מוצר..." onkeyup="searchProducts()">
   </div>
 
+  <section id="products" class="products" dir="rtl">
+    <!-- המוצרים יוזנו כאן -->
+  </section>
+
+  <section id="tracking" class="tracking-link">
+    <h2>מעקב אחרי הזמנה</h2>
+    <p>אחרי שתקבל מספר מעקב בוואצאפ, תוכל לעקוב כאן:</p>
+    <a href="https://www.israelpost.co.il/itemtrace.nsf/mainsearch?OpenForm" target="_blank">
+      מעבר למעקב בדואר ישראל
+    </a>
+  </section>
+
+  <section id="reviews" class="reviews-section">
+    <h2>חוות דעת לקוחות</h2>
+    <div class="review-card">
+      <p class="review-text">"שירות מעולה והמוצרים הגיעו מהר! מרוצה מאוד."</p>
+      <p class="review-author">★ ★ ★ ★ ★ - יואב, באר שבע</p>
+    </div>
+    <div class="review-card">
+      <p class="review-text">"האתר נוח לשימוש והמוצרים איכותיים. תודה רבה!"</p>
+      <p class="review-author">★ ★ ★ ★ ☆ - תמר, חיפה</p>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>צור קשר</h2>
+    <p>ניתן לשלוח הודעה דרך <a href="https://wa.me/972500000000" target="_blank">וואטסאפ</a> או בטלפון: 050-0000000</p>
+  </section>
+
   <footer>
-    <p>© 2025 style next tech | כל הזכויות שמורות</p>
+    <p>&copy; 2025 Style Next Tech. כל הזכויות שמורות.</p>
   </footer>
 
-  <div class="back-to-top" id="backToTop" onclick="scrollToTop()">חזור למעלה ↑</div>
+  <button id="backToTop" onclick="scrollToTop()">↑</button>
 
   <script>
-    const products = [
-      {
-        name: "משקפי שמש חכמות",
-        category: "wearables",
-        description: "חכם Bluetooth v5.3 משקפי שמש להתקשר ספורט חיצונית אוזניות טכנולוגיה שחור",
-        price: 50,
-        hot: true
-      },
-      {
-        name: "אוזניות בלוטוס קטנות",
-        category: "wearables",
-        description: "אוזניות בלוטוס מקוריות Air Pro Bluetooth 5.3 אוריקולרים",
-        price: 30,
-        hot: false
-      },
-      {
-        name: "רובה גדול כדורי ג'לי",
-        category: "toys",
-        description: "צעצוע נשק M416 חשמלי בלסטר ירי ספורט ג'ל כדור מים",
-        price: 100,
-        hot: true
-      },
-      {
-        name: "שעון חכם",
-        category: "wearables",
-        description: "שעון חכם Ultra x 3 Pro MAX Gen2 49mm מסך Amoled 2025 חדש",
-        price: 120,
-        hot: true
-      },
-      {
-        name: "מכשיר עיסוי",
-        category: "fitness",
-        description: "מכונת פאשיה להרפיה שרירית חשמלי",
-        price: 100,
-        hot: false
-      },
-      {
-        name: "מכונת בוקס מוזיקה",
-        category: "fitness",
-        description: "מכונת בוקס מוזיקה 2025 עם Bluetooth למבוגרים",
-        price: 285,
-        hot: false
-      },
-      {
-        name: "כדור מתאמן לכוח",
-        category: "fitness",
-        description: "כדור כוח ג'ירוסקופי LED לכושר יד",
-        price: 20,
-        hot: false
-      }
+    const productsData = [
+      { name: "משקפי שמש חכמות", desc: "Bluetooth v5.3, אוזניות מובנות", price: "50" },
+      { name: "אוזניות בלוטוס קטנות", desc: "Air Pro Bluetooth 5.3 מקוריות", price: "30" },
+      { name: "רובה גדול כדורי ג'לי", desc: "M416, חשמלי עם ירי מים", price: "100" },
+      { name: "שעון חכם", desc: "Amoled, טעינה אלחוטית, Ultra X3", price: "120" },
+      { name: "מכשיר עיסוי", desc: "פאשיה חשמלית, להרפיה", price: "100" },
+      { name: "מכונת בוקס מוזיקה", desc: "מכונת בוקס 2025 עם Bluetooth", price: "285" },
+      { name: "כדור מתאמן לכוח", desc: "ג'ירוסקופי LED לכף היד", price: "20" }
     ];
 
-    function displayProducts(filter = 'all') {
-      const container = document.getElementById("products");
-      container.innerHTML = "";
-      const search = document.getElementById("searchInput").value.toLowerCase();
+    const productsContainer = document.querySelector(".products");
 
-      products.filter(p => (filter === 'all' || (filter === 'hot' && p.hot) || p.category === filter)).forEach(p => {
-        if (p.name.toLowerCase().includes(search) || p.description.toLowerCase().includes(search)) {
-          container.innerHTML += `
-            <div class="product">
-              <h3>${p.name}</h3>
-              ${p.hot ? '<span class="hot-deal">מבצע חם!</span>' : ''}
-              <p>${p.description}</p>
-              <p><strong>מחיר:</strong> ${p.price} ש"ח</p>
-            </div>`;
-        }
+    function displayProducts(products) {
+      productsContainer.innerHTML = "";
+      products.forEach(product => {
+        productsContainer.innerHTML += `
+          <div class="product">
+            <h3>${product.name}</h3>
+            <p>${product.desc}</p>
+            <p><strong>מחיר:</strong> ₪${product.price}</p>
+            <a href="https://wa.me/972500000000?text=אני רוצה להזמין את: ${encodeURIComponent(product.name)}" target="_blank">הזמן עכשיו</a>
+          </div>
+        `;
       });
     }
 
-    document.getElementById("searchInput").addEventListener("input", () => displayProducts());
-    displayProducts();
-
-    function filterCategory(cat) {
-      displayProducts(cat);
+    function searchProducts() {
+      const term = document.getElementById("searchInput").value.toLowerCase();
+      const filtered = productsData.filter(p => p.name.toLowerCase().includes(term));
+      displayProducts(filtered);
     }
-
-    window.addEventListener("scroll", () => {
-      const btn = document.getElementById("backToTop");
-      if (window.scrollY > 300) {
-        btn.style.display = "block";
-      } else {
-        btn.style.display = "none";
-      }
-    });
 
     function scrollToTop() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+
+    window.onscroll = () => {
+      const btn = document.getElementById("backToTop");
+      btn.style.display = window.scrollY > 200 ? "block" : "none";
+    };
+
+    // טען מוצרים בהתחלה
+    displayProducts(productsData);
   </script>
+
 </body>
 </html>
