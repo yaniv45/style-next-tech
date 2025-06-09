@@ -1,9 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>החנות של יניב</title>
+  <link rel="icon" type="image/png" href="https://via.placeholder.com/32x32.png?text=Y" />
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -117,6 +119,28 @@
     footer a:hover {
       text-decoration: underline;
     }
+    form {
+      max-width: 500px;
+      margin: 20px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    form input, form textarea {
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    form input[type="submit"] {
+      background: #25D366;
+      color: white;
+      cursor: pointer;
+      border: none;
+    }
+    form input[type="submit"]:hover {
+      background-color: #1ebe57;
+    }
   </style>
 </head>
 <body>
@@ -131,9 +155,8 @@
 
 <main>
   <section id="products" class="container">
-
     <article class="product">
-      <img src="https://via.placeholder.com/300x200?text=%D7%90%D7%A7%D7%93%D7%97+%D7%92%D7%9C%D7%99" alt="אקדח ג'לי חשמלי" />
+      <img src="https://via.placeholder.com/300x200?text=אקדח+ג'לי" alt="אקדח ג'לי חשמלי" />
       <h3>אקדח ג'לי חשמלי</h3>
       <p>כדור צעצוע ג'ל חשמלי 3.7V לקיץ</p>
       <div class="price">25 ש"ח</div>
@@ -141,62 +164,46 @@
     </article>
 
     <article class="product">
-      <img src="https://via.placeholder.com/300x200?text=%D7%A9%D7%A2%D7%95%D7%9F+%D7%97%D7%9B%D7%9D" alt="שעון חכם" />
+      <img src="https://via.placeholder.com/300x200?text=שעון+חכם" alt="שעון חכם" />
       <h3>שעון חכם</h3>
-      <p>Galaxy Watch 7 Ultra 47mm חדש עם שיחת Bluetooth לגברים, GPS, NFC, מסך AMOLED, מעקב כושר ובריאות.</p>
+      <p>Galaxy Watch 7 Ultra 47mm עם שיחת Bluetooth, GPS, NFC, מעקב בריאות.</p>
       <div class="price">100 ש"ח</div>
       <a class="order-btn" href="https://wa.me/972548673111?text=שלום, אני רוצה להזמין את שעון חכם" target="_blank" rel="noopener noreferrer">הזמן עכשיו בביט</a>
     </article>
 
     <article class="product">
-      <img src="https://via.placeholder.com/300x200?text=%D7%A8%D7%9E%D7%A7%D7%95%D7%9C" alt="רמקול" />
+      <img src="https://via.placeholder.com/300x200?text=רמקול" alt="רמקול" />
       <h3>רמקול</h3>
-      <p>רמקול Bluetooth Soundcore Select 4 Go, נייד, עם זמן השמעה של עד 20 שעות, עמיד למים ואבק IP67, צף</p>
+      <p>Bluetooth Soundcore Select 4 Go, עמיד למים, 20 שעות שמע</p>
       <div class="price">110 ש"ח</div>
       <a class="order-btn" href="https://wa.me/972548673111?text=שלום, אני רוצה להזמין את רמקול" target="_blank" rel="noopener noreferrer">הזמן עכשיו בביט</a>
     </article>
-
   </section>
 
   <section id="about" style="max-width: 1000px; margin: 40px auto; padding: 0 15px; direction: rtl;">
-    <h2 style="text-align: center; margin-bottom: 15px;">אודות החנות</h2>
+    <h2 style="text-align: center;">אודות החנות</h2>
     <p style="text-align: center; font-size: 1.1rem; color: #444;">
-      החנות של יניב מתמחה במוצרים איכותיים במחירים משתלמים. השירות הוא מעל לכל והלקוחות שלנו תמיד בראש העדיפות.
+      החנות של יניב מציעה מוצרים איכותיים במחירים משתלמים. השירות הוא מעל הכל!
     </p>
   </section>
-<section id="contact" style="...">
-  <h2 style="...">שירות לקוחות</h2>
-  <p style="...">לשאלות והזמנות ניתן לפנות אלינו בוואטסאפ...</p>
-  <p style="...">התשלום נעשה באמצעות ביט בלבד.</p>
 
-  <form action="mailto:yanivasraf45@gmail.com" method="post" enctype="text/plain"
-      style="max-width:500px; margin: 20px auto; display:flex; flex-direction:column; gap:10px; direction: rtl;">
-  <label for="name">שם מלא:</label>
-  <input type="text" name="name" id="name" required
-         style="padding: 10px; border-radius: 6px; border: 1px solid #ccc;">
-
-  <label for="message">הודעה:</label>
-  <textarea name="message" id="message" rows="4" required
-            style="padding: 10px; border-radius: 6px; border: 1px solid #ccc;"></textarea>
-
-  <input type="submit" value="שלח הודעה"
-         style="background:#25D366; color:white; padding:10px; border:none; border-radius:6px; cursor:pointer;">
-</form>
-
-
-  <!-- כאן מתחיל הטופס -->
-  <form action="mailto:example@gmail.com" method="post" enctype="text/plain" style="max-width:500px; margin: 0 auto; display:flex; flex-direction:column; gap:10px;">
-    <label>שם:</label>
-    <input type="text" name="name" required style="padding: 8px; border-radius: 6px; border: 1px solid #ccc;">
-    
-    <label>הודעה:</label>
-    <textarea name="message" rows="4" required style="padding: 8px; border-radius: 6px; border: 1px solid #ccc;"></textarea>
-    
-    <input type="submit" value="שלח" style="background:#25D366; color:white; padding:10px; border:none; border-radius:6px; cursor:pointer;">
-  </form>
-</section>
-
-  
+  <section id="contact" style="max-width: 1000px; margin: 40px auto; padding: 0 15px;">
+    <h2 style="text-align: center;">צור קשר</h2>
+    <p style="text-align: center; font-size: 1.1rem; color: #444;">
+      להזמנות או שאלות אפשר לפנות בוואטסאפ:
+      <a href="https://wa.me/972548673111" target="_blank" style="color:#25D366; font-weight:bold;">054-867-3111</a>
+    </p>
+    <p style="text-align: center; font-size: 1rem; color: #888;">
+      תשלום באמצעות ביט בלבד.
+    </p>
+    <form action="mailto:yaniv@example.com" method="post" enctype="text/plain">
+      <label for="name">שם:</label>
+      <input type="text" id="name" name="name" required>
+      <label for="message">הודעה:</label>
+      <textarea id="message" name="message" rows="4" required></textarea>
+      <input type="submit" value="שלח הודעה">
+    </form>
+  </section>
 </main>
 
 <footer>
