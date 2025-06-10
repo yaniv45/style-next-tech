@@ -64,7 +64,11 @@
       margin: 10px 0;
       padding: 10px;
       background: #fff;
-      border-right: 5px solid green;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+    .hot-deals h2 {
+      font-size: 1.2em;
     }
   </style>
 </head>
@@ -92,10 +96,10 @@
     <img src="צילום%20מסך%202025-05-09%20224659.png" alt="משקפי שמש חכמות"/>
     <h3>משקפי שמש חכמות</h3>
     <p>Bluetooth v5.3 משקפי שמש להתקשר, טכנולוגיה שחור אנטי מגע</p>
+    <p style="font-size: 0.9em; color: red;">מוצר שקנו הרבה</p>
     <p>מחיר: 50 ש"ח</p>
     <a href="https://wa.me/972548673111" target="_blank">הזמן עכשיו</a>
   </div>
-
   <div class="product" data-name="מכונת בוקס" data-category="כושר">
     <img src="צילום%20מסך%202025-05-10%20165510.png" alt="מכונת בוקס מוזיקה"/>
     <h3>מכונת בוקס מוזיקה</h3>
@@ -103,7 +107,6 @@
     <p>מחיר: 285 ש"ח</p>
     <a href="https://wa.me/972548673111" target="_blank">הזמן עכשיו</a>
   </div>
-
   <div class="product" data-name="רמקול" data-category="מוזיקה">
     <img src="צילום%20מסך%202025-05-09%20224400.png" alt="רמקול נייד"/>
     <h3>רמקול נייד</h3>
@@ -116,19 +119,16 @@
 <section class="hot-deals">
   <h2>🔥 מבצעים חמים</h2>
   <p>המבצעים המובילים של השבוע!</p>
-  <!-- ניתן להוסיף מוצרים בהמשך -->
 </section>
 
 <section class="reviews">
   <h2>ביקורות אחרונות</h2>
-  <div class="review">"שירות מעולה והמוצר הגיע בזמן!"</div>
-  <div class="review">"קניתי משקפי שמש חכמות, עובד מצוין!"</div>
-  <div class="review">"אחלה מכונת בוקס, הילדים עפים על זה!"</div>
+  <div class="review" id="reviewBox">"שירות מעולה והמוצר הגיע בזמן!"</div>
 </section>
 
 <section class="tracking">
   <h2>מעקב הזמנה</h2>
-  <p>אחרי שהמוצר נשלח, תוכל לעקוב דרך <a href="https://mypost.postil.com/" target="_blank">אתר הדואר</a></p>
+  <p>אחרי שהמוצר נשלח, תוכל לעקוב דרך <a href="https://www.mypost.co.il/" target="_blank">אתר דואר ישראל</a></p>
 </section>
 
 <div id="backToTop" onclick="scrollToTop()">🔝 חזור למעלה</div>
@@ -153,6 +153,21 @@
       p.style.display = name.includes(val) ? 'inline-block' : 'none';
     });
   });
+
+  const reviews = [
+    '"שירות מעולה והמוצר הגיע בזמן!"',
+    '"קניתי משקפי שמש חכמות, עובד מצוין!"',
+    '"אחלה מכונת בוקס, הילדים עפים על זה!"',
+    '"מחירים משתלמים ומשלוח מהיר!"',
+    '"המוצר בדיוק כמו בתמונה, תודה רבה!"'
+  ];
+
+  let currentReview = 0;
+  function rotateReview() {
+    document.getElementById("reviewBox").textContent = reviews[currentReview];
+    currentReview = (currentReview + 1) % reviews.length;
+  }
+  setInterval(rotateReview, 86400000); // כל 24 שעות
 </script>
 
 </body>
