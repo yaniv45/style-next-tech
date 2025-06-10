@@ -11,10 +11,12 @@
     nav a { color: #fff; text-decoration: none; padding: 8px 16px; border-radius: 5px; background: #666; transition: 0.3s; }
     nav a:hover { background: #888; }
     .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 20px; }
-    .product { background: #fff; border-radius: 12px; padding: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: relative; }
+    .product { background: #fff; border-radius: 12px; padding: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: relative; text-align: center; }
+    .product img { width: 100%; height: auto; border-radius: 10px; margin-bottom: 10px; }
     .tag { position: absolute; top: 10px; left: 10px; background: orange; color: #fff; padding: 5px; border-radius: 5px; font-size: 12px; }
+    .tag-note { font-size: 12px; color: orange; margin-top: 5px; }
     .reviews, .contact, .footer { padding: 20px; background: #eee; margin-top: 20px; border-radius: 12px; }
-    .review-box { background: white; padding: 15px; margin: 10px 0; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+    .review-box { background: white; padding: 15px; margin: 10px 0; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); font-style: italic; border-right: 4px solid #ff9800; }
     .back-to-top { position: fixed; bottom: 20px; left: 20px; background: #222; color: #fff; padding: 10px 15px; border-radius: 50%; cursor: pointer; font-weight: bold; }
     .search-box { text-align: center; padding: 10px; }
     .search-box input { width: 60%; padding: 10px; border: 1px solid #aaa; border-radius: 8px; }
@@ -42,22 +44,28 @@
   <div id="products" class="product-grid">
     <div class="product" data-category="גאדג'טים" data-name="שעון חכם">
       <span class="tag">מוצר שקנו הרבה</span>
+      <img src="https://m.media-amazon.com/images/I/61Qe0euJJZL._AC_SX522_.jpg" alt="שעון חכם Galaxy">
       <h3>שעון חכם Galaxy Watch 7 Ultra</h3>
       <p>Smartwatch לגברים, GPS, NFC, AMOLED</p>
       <p>מחיר: 100 ש"ח</p>
+      <p class="tag-note">מוצר שקנו הרבה</p>
     </div>
     <div class="product" data-category="גאדג'טים" data-name="משקפי שמש">
       <span class="tag">מוצר שקנו הרבה</span>
+      <img src="https://m.media-amazon.com/images/I/51W+0u35lFL._AC_SX522_.jpg" alt="משקפי שמש חכמות">
       <h3>משקפי שמש חכמות</h3>
       <p>Bluetooth v5.3, אוזניות משולבות למשקפיים</p>
       <p>מחיר: 50 ש"ח</p>
+      <p class="tag-note">מוצר שקנו הרבה</p>
     </div>
     <div class="product" data-category="גאדג'טים" data-name="שעון חכם">
+      <img src="https://m.media-amazon.com/images/I/61M1VVhaLjL._AC_SX522_.jpg" alt="שעון חכם Ultra">
       <h3>שעון חכם Ultra X3 Pro</h3>
       <p>טעינה אלחוטית, 49mm AMOLED</p>
       <p>מחיר: 120 ש"ח</p>
     </div>
     <div class="product" data-category="אביזרים לכושר" data-name="עיסוי">
+      <img src="https://m.media-amazon.com/images/I/61xlf+qM2hL._AC_SX522_.jpg" alt="מכשיר עיסוי">
       <h3>מכשיר עיסוי</h3>
       <p>ציוד כושר, מקל רוד פרקושן</p>
       <p>מחיר: 100 ש"ח</p>
@@ -86,14 +94,20 @@
   <script>
     function searchProduct(term) {
       const items = document.querySelectorAll('.product');
+      term = term.toLowerCase();
+      let found = false;
       items.forEach(item => {
-        const name = item.dataset.name || "";
+        const name = (item.dataset.name || "").toLowerCase();
         if (name.includes(term) || term === "") {
           item.style.display = 'block';
+          found = true;
         } else {
           item.style.display = 'none';
         }
       });
+      if (!found && term !== "") {
+        document.getElementById('products').innerHTML = '<p style="text-align:center;width:100%">לא נמצאו מוצרים תואמים</p>';
+      }
     }
   </script>
 </body>
