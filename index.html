@@ -1,100 +1,135 @@
 <!DOCTYPE html>
 <html lang="he">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Style Next Tech</title>
   <style>
-    body { font-family: Arial, sans-serif; direction: rtl; }
-    header, footer { background: #333; color: white; text-align: center; padding: 1rem; }
-    .product { border: 1px solid #ccc; border-radius: 10px; padding: 1rem; margin: 1rem; max-width: 300px; }
-    .product img { max-width: 100%; border-radius: 10px; }
-    .products { display: flex; flex-wrap: wrap; justify-content: center; }
-    .tag { color: red; font-size: 0.9rem; }
-    .reviews-box { border: 2px solid #ddd; padding: 1rem; margin: 2rem auto; max-width: 600px; border-radius: 15px; background: #f9f9f9; }
-    .search-bar { margin: 1rem; text-align: center; }
-    .search-bar input { padding: 0.5rem; width: 200px; }
-    .back-to-top { position: fixed; bottom: 20px; left: 20px; background: #333; color: white; padding: 10px; border-radius: 50%; cursor: pointer; display: none; }
+    body {
+      font-family: Arial, sans-serif;
+      direction: rtl;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    header, footer {
+      background-color: #222;
+      color: white;
+      padding: 1em;
+      text-align: center;
+    }
+
+    .product {
+      background: white;
+      border-radius: 8px;
+      margin: 20px;
+      padding: 15px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .product img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+
+    .product h2 {
+      margin-top: 0.5em;
+      margin-bottom: 0.3em;
+    }
+
+    .product p {
+      margin: 0.3em 0;
+    }
+
+    .tag-popular {
+      background-color: orange;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 5px;
+      font-size: 0.8em;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    .reviews {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px;
+    }
+
+    .review-box {
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #fafafa;
+    }
   </style>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const topBtn = document.getElementById("backToTop");
-      window.onscroll = () => {
-        topBtn.style.display = window.scrollY > 100 ? "block" : "none";
-      };
-      topBtn.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
-
-      // חיפוש
-      document.getElementById("searchInput").addEventListener("input", function () {
-        const val = this.value.toLowerCase();
-        document.querySelectorAll(".product").forEach(card => {
-          card.style.display = card.innerText.toLowerCase().includes(val) ? "block" : "none";
-        });
-      });
-
-      // ביקורות מתחלפות
-      const reviews = [
-        "שירות מהיר ואיכות מצוינת!",
-        "הגיע בדיוק כמו בתמונה! ממליץ!",
-        "מוצרים באיכות גבוהה מאוד",
-        "שירות לקוחות מצוין ועוזר!",
-        "הכל הגיע בזמן, ארוז טוב."
-      ];
-      let i = 0;
-      setInterval(() => {
-        document.getElementById("reviewBox").innerText = reviews[i % reviews.length];
-        i++;
-      }, 86400000); // כל יום
-    });
-  </script>
 </head>
+
 <body>
   <header>
-    <h1>style next tech</h1>
-    <p><a href="https://wa.me/972548673111" target="_blank" style="color: #fff;">וואטסאפ</a> או בטלפון: 972548673111</p>
+    <h1>Style Next Tech</h1>
+    <p>החנות של יניב - מוצרים חדשניים במחירים מעולים</p>
   </header>
 
-  <div class="search-bar">
-    <input id="searchInput" type="text" placeholder="חפש מוצר..." />
-  </div>
-
-  <section class="products">
-    <div class="product">
-      <img src="https://chat.openai.com/c/file-FzF9aSwyvkhLZ219Bdbqao" alt="משקפי שמש חכמות">
-      <h3>משקפי שמש חכמות</h3>
-      <p>חכם Bluetooth v5.3 משקפי שמש להתקשר ספורט חיצונית אוזניות טכנולוגיה שחור אנטי מגע</p>
-      <p>מחיר: 50 ש"ח</p>
-      <p class="tag">מוצר שקנו הרבה</p>
-    </div>
-    <div class="product">
-      <img src="https://chat.openai.com/c/file-3E96qgMyMqoy23Dyp89WVj" alt="מכונת בוקס מוזיקה">
-      <h3>מכונת בוקס מוזיקה</h3>
-      <p>מכונת בוקס מוזיקה חדשה לשנת 2025 עם Bluetooth, מטרה אלקטרונית לתליה על הקיר</p>
-      <p>מחיר: 285 ש"ח</p>
-      <p class="tag">מוצר שקנו הרבה</p>
-    </div>
-    <div class="product">
-      <img src="https://chat.openai.com/c/file-BD5Q4KjqD1XtgX8g7U7fks" alt="רמקול נייד שחור">
-      <h3>רמקול נייד Bluetooth</h3>
-      <p>רמקול איכותי קומפקטי עם חיבור Bluetooth, מתאים לבית או לטיולים</p>
-      <p>מחיר: 70 ש"ח</p>
-    </div>
+  <section class="product">
+    <h2>משקפי שמש חכמות</h2>
+    <span class="tag-popular">מוצר שקנו הרבה</span>
+    <img src="images/smart-glasses.png" alt="משקפי שמש חכמות">
+    <p>חכם Bluetooth v5.3 משקפי שמש להתקשר ספורט חיצונית אוזניות טכנולוגיה שחור אנטי מגע v עבור גברים</p>
+    <p>מחיר: 50 ₪</p>
   </section>
 
-  <section class="reviews-box">
+  <section class="product">
+    <h2>מכונת בוקס מוזיקה</h2>
+    <img src="images/music-box.png" alt="מכונת בוקס מוזיקה">
+    <p>מכונת בוקס מוזיקה חדשה לשנת 2025 עם Bluetooth, מטרה אלקטרונית למבוגרים לתליה על הקיר</p>
+    <p>מחיר: 285 ₪</p>
+  </section>
+
+  <section class="product">
+    <h2>רמקול Bluetooth איכותי</h2>
+    <img src="images/speaker.png" alt="רמקול Bluetooth">
+    <p>רמקול עמיד ואיכותי עם Bluetooth, עיצוב מודרני וסאונד חזק במיוחד</p>
+    <p>מחיר: 60 ₪</p>
+  </section>
+
+  <section class="reviews">
     <h2>חוות דעת של לקוחות</h2>
-    <p id="reviewBox">שירות מהיר ואיכות מצוינת!</p>
+    <div class="review-box" id="review-box">טוען חוות דעת...</div>
   </section>
-
-  <section>
-    <h2>מעקב אחר הזמנה</h2>
-    <p>לאחר ביצוע הזמנה תשלח אליך הודעה עם מספר מעקב. ניתן לעקוב אחר החבילה דרך <a href="https://mypost.israelpost.co.il/" target="_blank">אתר דואר ישראל</a>.</p>
-  </section>
-
-  <div id="backToTop" class="back-to-top">↑</div>
 
   <footer>
-    <p>כל הזכויות שמורות &copy; style next tech</p>
+    <p>עקוב אחר ההזמנה שלך:
+      <a href="https://mypost.israelpost.co.il/" target="_blank">קישור למעקב בדואר ישראל</a>
+    </p>
+    <p>ליצירת קשר:
+      <a href="https://wa.me/972548673111" target="_blank">וואטסאפ</a>
+    </p>
   </footer>
+
+  <script>
+    // חוות דעת מתחלפות
+    const reviews = [
+      "שירות מעולה והמוצר הגיע מהר!",
+      "המוצר ממש איכותי! ממליץ בחום.",
+      "קיבלתי את ההזמנה תוך יומיים. מרוצה מאוד.",
+      "חווית קנייה נהדרת. בהחלט אזמין שוב."
+    ];
+
+    function rotateReviews() {
+      const today = new Date().getDate();
+      const index = today % reviews.length;
+      document.getElementById('review-box').textContent = reviews[index];
+    }
+
+    rotateReviews();
+  </script>
 </body>
+
 </html>
