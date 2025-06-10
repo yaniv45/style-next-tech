@@ -8,14 +8,15 @@
     body { font-family: Arial, sans-serif; direction: rtl; margin: 0; background: #f9f9f9; }
     header { background: #222; color: #fff; padding: 20px; text-align: center; }
     nav { background: #444; color: #fff; display: flex; justify-content: center; gap: 15px; padding: 10px 0; flex-wrap: wrap; }
-    nav a { color: #fff; text-decoration: none; padding: 8px 16px; border-radius: 5px; background: #666; transition: 0.3s; }
+    nav a { color: #fff; text-decoration: none; padding: 8px 16px; border-radius: 5px; background: #666; transition: 0.3s; cursor: pointer; }
     nav a:hover { background: #888; }
     .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 20px; }
     .product { background: #fff; border-radius: 12px; padding: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: relative; transition: transform 0.3s ease; }
     .product:hover { transform: scale(1.03); }
     .tag { position: absolute; top: 10px; left: 10px; background: orange; color: #fff; padding: 5px; border-radius: 5px; font-size: 12px; }
     .reviews, .contact, .footer { padding: 20px; background: #eee; margin-top: 20px; border-radius: 12px; }
-    .review-box { background: white; padding: 15px; margin: 10px 0; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+    .review-boxes { display: flex; flex-direction: column; gap: 10px; }
+    .review-box { background: white; padding: 15px; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
     .back-to-top { position: fixed; bottom: 20px; left: 20px; background: #222; color: #fff; padding: 10px 15px; border-radius: 50%; cursor: pointer; font-weight: bold; }
     .search-box { text-align: center; padding: 10px; }
     .search-box input { width: 60%; padding: 10px; border: 1px solid #aaa; border-radius: 8px; }
@@ -60,17 +61,19 @@
       <h3>שעון חכם Ultra X3 Pro</h3>
       <p>טעינה אלחוטית, 49mm AMOLED</p>
       <p>מחיר: 120 ש"ח</p>
+      <img class="product-image" src="images/ultra_watch.jpg" alt="שעון Ultra X3 Pro">
     </div>
     <div class="product" data-category="אביזרים לכושר" data-name="מכשיר עיסוי">
       <h3>מכשיר עיסוי</h3>
       <p>ציוד כושר, מקל רוד פרקושן</p>
       <p>מחיר: 100 ש"ח</p>
+      <img class="product-image" src="images/massage_device.jpg" alt="מכשיר עיסוי">
     </div>
   </div>
 
   <section id="reviews" class="reviews">
     <h2>חוות דעת של לקוחות</h2>
-    <div class="review-box" id="review-box"></div>
+    <div class="review-boxes" id="review-boxes"></div>
   </section>
 
   <section class="contact">
@@ -90,13 +93,20 @@
       '"הזמנתי שעון והוא הגיע תוך כמה ימים. שירות נהדר!" - דנה',
       '"המכשיר עיסוי איכותי מאוד, מרוצה מהקנייה." - אורי',
       '"קיבלתי שירות דרך הוואטסאפ ממש נוח ומהיר!" - מיכל',
-      '"המוצרים איכותיים מאוד והשירות מעולה!" - אלעד'
+      '"המוצרים איכותיים מאוד והשירות מעולה!" - אלעד',
+      '"שירות מקצועי ואדיב, ממליץ בחום!" - יוסי',
+      '"המחיר ממש משתלם והמוצר מעולה." - תמר'
     ];
 
-    function rotateReview() {
-      const box = document.getElementById('review-box');
-      const index = new Date().getDate() % reviews.length;
-      box.textContent = reviews[index];
+    function rotateReviews() {
+      const box = document.getElementById('review-boxes');
+      const today = new Date().getDate();
+      const start = today % reviews.length;
+      const toShow = [
+        reviews[start],
+        reviews[(start + 1) % reviews.length]
+      ];
+      box.innerHTML = toShow.map(r => `<div class='review-box'>${r}</div>`).join('');
     }
 
     function searchProduct(term) {
@@ -123,7 +133,7 @@
       });
     }
 
-    rotateReview();
+    rotateReviews();
   </script>
 </body>
 </html>
