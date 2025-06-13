@@ -5,32 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Style Next Tech</title>
   <style>
-    body { font-family: "Segoe UI", sans-serif; direction: rtl; margin: 0; background: #f4f4f4; color: #333; }
-    header { background: linear-gradient(90deg, #0f2027, #203a43, #2c5364); color: #fff; padding: 30px 20px; text-align: center; }
-    header h1 { margin: 0; font-size: 2.5em; }
-    header p a { color: #0ff; font-weight: bold; text-decoration: underline; }
-    nav { background: #1e1e1e; color: #fff; display: flex; justify-content: center; flex-wrap: wrap; padding: 15px 0; gap: 10px; }
-    nav a { background: #444; padding: 10px 18px; border-radius: 20px; color: #fff; text-decoration: none; transition: background 0.3s; }
-    nav a:hover { background: #666; }
-    .search-box { text-align: center; padding: 15px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin: 10px; border-radius: 12px; }
-    .search-box input { width: 80%; max-width: 400px; padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 16px; }
-    .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; padding: 20px; }
-    .product { background: #fff; border-radius: 16px; padding: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: transform 0.3s; position: relative; }
-    .product:hover { transform: scale(1.04); }
-    .tag { position: absolute; top: 12px; right: 12px; background: crimson; color: #fff; padding: 5px 10px; font-size: 12px; border-radius: 6px; }
-    img.product-image { width: 100%; height: auto; border-radius: 10px; margin-top: 10px; }
-    .reviews, .contact, .footer { padding: 30px 20px; margin: 30px 10px 0; border-radius: 16px; background: #fff; box-shadow: 0 3px 8px rgba(0,0,0,0.1); }
-    .reviews h2, .contact h2 { margin-top: 0; }
-    .review-boxes { display: flex; flex-direction: column; gap: 12px; margin-top: 15px; }
-    .review-box { background: #f9f9f9; padding: 15px; border-radius: 10px; border-left: 5px solid #00b894; }
-    .footer { text-align: center; font-size: 14px; color: #666; }
-    .back-to-top { position: fixed; bottom: 25px; left: 25px; background: #111; color: #fff; width: 45px; height: 45px; display: flex; justify-content: center; align-items: center; border-radius: 50%; font-size: 22px; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.3); }
+    body { font-family: Arial, sans-serif; direction: rtl; margin: 0; background: #f5f7fa; color: #333; }
+    header { background: linear-gradient(45deg, #1e1e2f, #3a3a5a); color: #fff; padding: 30px 20px; text-align: center; }
+    nav { background: #27293d; color: #fff; display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; padding: 10px 0; }
+    nav a { color: #fff; text-decoration: none; padding: 10px 20px; border-radius: 8px; background: #4e4e6a; transition: 0.3s; cursor: pointer; }
+    nav a:hover { background: #6c6c89; }
+    .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 20px; }
+    .product { background: #fff; border-radius: 12px; padding: 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: relative; transition: transform 0.3s ease; display: none; }
+    .product:hover { transform: scale(1.03); }
+    .tag { position: absolute; top: 10px; left: 10px; background: orange; color: #fff; padding: 5px; border-radius: 5px; font-size: 12px; }
+    .reviews, .contact, .footer { padding: 20px; background: #eef0f3; margin-top: 30px; border-radius: 12px; }
+    .review-boxes { display: flex; flex-direction: column; gap: 10px; }
+    .review-box { background: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+    .back-to-top { position: fixed; bottom: 20px; left: 20px; background: #222; color: #fff; padding: 10px 15px; border-radius: 50%; cursor: pointer; font-weight: bold; }
+    .search-box { text-align: center; padding: 20px; }
+    .search-box input { width: 60%; padding: 10px; border: 1px solid #aaa; border-radius: 8px; font-size: 16px; }
+    img.product-image { max-width: 100%; border-radius: 8px; margin-top: 10px; }
+    form input, form textarea { display: block; width: 100%; margin-bottom: 15px; padding: 10px; border: 1px solid #ccc; border-radius: 8px; font-size: 16px; }
+    form button { padding: 10px 20px; background: #1e90ff; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; }
+    form button:hover { background: #006ad1; }
   </style>
 </head>
 <body>
   <header>
     <h1>Style Next Tech</h1>
-    <p>לרכישה התקשרו או שלחו וואטסאפ: <a href="https://wa.me/972548673111" target="_blank">054-8673111</a></p>
+    <p>החנות המובילה לטכנולוגיה ואופנה</p>
   </header>
 
   <nav>
@@ -40,6 +39,7 @@
     <a onclick="filterCategory('נעליים')">נעליים</a>
     <a onclick="filterCategory('אביזרים לכושר')">אביזרים לכושר</a>
     <a href="#reviews">חוות דעת</a>
+    <a href="#contact">צור קשר</a>
   </nav>
 
   <div class="search-box">
@@ -47,7 +47,7 @@
   </div>
 
   <div id="products" class="product-grid">
-    <!-- כאן כל המוצרים יישארו כמו שיש, לא שיניתי אותם -->
+    <!-- מוצרים יופיעו כאן -->
   </div>
 
   <section id="reviews" class="reviews">
@@ -55,10 +55,16 @@
     <div class="review-boxes" id="review-boxes"></div>
   </section>
 
-  <section class="contact">
-    <h2>מעקב הזמנה</h2>
-    <p>לאחר ההזמנה תשלח אליך הודעת וואטסאפ עם מספר מעקב. לעקוב אחר משלוח בדואר ישראל:
-    <a href="https://www.israelpost.co.il/itemtrace.nsf/mainsearch?OpenForm" target="_blank">לחץ כאן</a></p>
+  <section id="contact" class="contact">
+    <h2>צור קשר</h2>
+    <form onsubmit="sendMessage(event)">
+      <input type="text" name="name" placeholder="שם מלא" required />
+      <input type="tel" name="phone" placeholder="טלפון" required />
+      <input type="email" name="email" placeholder="דוא"ל" required />
+      <textarea name="message" rows="4" placeholder="מה הבעיה?" required></textarea>
+      <button type="submit">שלח</button>
+    </form>
+    <p>לשירות לקוחות ניתן להתקשר: <strong>054-8673111</strong></p>
   </section>
 
   <div class="footer">
@@ -77,6 +83,29 @@
       '"המחיר ממש משתלם והמוצר מעולה." - תמר'
     ];
 
+    const products = [
+      { name: 'שעון חכם Galaxy Watch 7 Ultra', category: "גאדג'טים", price: '100 ש"ח', description: 'Smartwatch לגברים, GPS, NFC, AMOLED', img: 'images/watch1.png', popular: true },
+      { name: 'משקפי שמש חכמות', category: "גאדג'טים", price: '50 ש"ח', description: 'Bluetooth v5.3, אוזניות משולבות למשקפיים', img: 'images/glasses1.png', popular: true },
+      { name: 'שעון חכם Ultra X3 Pro', category: "גאדג'טים", price: '120 ש"ח', description: 'טעינה אלחוטית, 49mm AMOLED', img: 'images/watch2.png' },
+      { name: 'מכשיר עיסוי', category: 'אביזרים לכושר', price: '100 ש"ח', description: 'ציוד כושר, מקל רוד פרקושן', img: 'images/massage1.png' },
+      { name: 'נעלי ספורט איכותיות', category: 'נעליים', price: '150 ש"ח', description: 'נוחות במיוחד לריצה ויום-יום', img: 'images/shoes1.png' },
+      { name: 'שרשרת כסף', category: 'תכשיטים', price: '70 ש"ח', description: 'עיצוב מודרני, מתנה מושלמת', img: 'images/necklace1.png' },
+      { name: 'טבעת חכמה', category: 'תכשיטים', price: '80 ש"ח', description: 'מעקב בריאות, Bluetooth', img: 'images/ring1.png' }
+    ];
+
+    function renderProducts(list = products) {
+      const container = document.getElementById('products');
+      container.innerHTML = list.map(p => `
+        <div class="product" style="display:block" data-category="${p.category}" data-name="${p.name}">
+          ${p.popular ? '<span class="tag">מוצר שקנו הרבה</span>' : ''}
+          <h3>${p.name}</h3>
+          <p>${p.description}</p>
+          <p>מחיר: ${p.price}</p>
+          <img class="product-image" src="${p.img}" alt="${p.name}" />
+        </div>
+      `).join('');
+    }
+
     function rotateReviews() {
       const box = document.getElementById('review-boxes');
       const today = new Date().getDate();
@@ -90,28 +119,27 @@
 
     function searchProduct(term) {
       const items = document.querySelectorAll('.product');
+      term = term.trim();
       items.forEach(item => {
         const name = item.dataset.name || "";
         const text = item.innerText || "";
-        if (name.includes(term) || text.includes(term) || term === "") {
-          item.style.display = 'block';
-        } else {
-          item.style.display = 'none';
-        }
+        item.style.display = (name.includes(term) || text.includes(term)) ? 'block' : 'none';
       });
     }
 
     function filterCategory(category) {
       const items = document.querySelectorAll('.product');
       items.forEach(item => {
-        if (item.dataset.category === category || category === "הכל") {
-          item.style.display = 'block';
-        } else {
-          item.style.display = 'none';
-        }
+        item.style.display = (item.dataset.category === category) ? 'block' : 'none';
       });
     }
 
+    function sendMessage(e) {
+      e.preventDefault();
+      alert("ההודעה נשלחה! נחזור אליך בהקדם.");
+    }
+
+    renderProducts();
     rotateReviews();
   </script>
 </body>
