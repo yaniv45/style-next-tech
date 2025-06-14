@@ -1,177 +1,418 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Style Next Tech - חנות גאדג'טים ואביזרים</title>
-  <meta name="description" content="חנות לגאדג'טים, אביזרים, תכשיטים ונעליים - משלוחים לכל הארץ!" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="description" content="חנות מובילה לגאדג'טים, אביזרים, תכשיטים ונעליים - כל מה שצריך במקום אחד" />
   <style>
+    /* איפוס בסיסי */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
     body {
-      margin: 0;
-      font-family: 'Rubik', sans-serif;
-      background-color: #f9f9f9;
-      color: #222;
-    }
-
-    header {
-      background-color: #1a1a1a;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
-    }
-
-    nav {
+      background: #f5f5f7;
+      color: #333;
+      line-height: 1.6;
+      min-height: 100vh;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+    }
+    header {
+      background-color: #111;
+      color: #fff;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       flex-wrap: wrap;
-      background-color: #333;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.6);
     }
-
-    nav a {
-      color: white;
-      padding: 12px 20px;
-      text-decoration: none;
+    header .logo {
+      font-size: 1.8rem;
       font-weight: bold;
+      letter-spacing: 2px;
+      cursor: pointer;
     }
-
-    nav a:hover {
+    nav {
+      margin-top: 10px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 12px;
+      border-radius: 4px;
+      transition: background-color 0.3s, color 0.3s;
+      user-select: none;
+    }
+    nav ul li a:hover,
+    nav ul li a.active {
       background-color: #1db954;
+      color: white;
     }
-
-    .hero {
-      background: url('https://images.unsplash.com/photo-1580910051070-20fbca2829fa?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
-      height: 250px;
+    main {
+      max-width: 1100px;
+      margin: 20px auto;
+      padding: 0 15px;
+      flex-grow: 1;
+    }
+    .banner {
+      background: url('https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+      height: 280px;
+      border-radius: 8px;
+      color: #fff;
       display: flex;
       justify-content: center;
       align-items: center;
-      color: #fff;
-      font-size: 2rem;
+      font-size: 2.4rem;
       font-weight: bold;
-      text-shadow: 2px 2px 6px #000;
+      text-shadow: 2px 2px 10px #000;
+      margin-bottom: 30px;
     }
-
-    .products {
+    /* מוצרים */
+    .products-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
       gap: 20px;
-      padding: 30px;
-      max-width: 1200px;
-      margin: auto;
+      margin-bottom: 40px;
     }
-
-    .product {
-      background-color: #fff;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-      text-align: center;
+    .product-card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgb(0 0 0 / 0.1);
       padding: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: box-shadow 0.3s ease;
+      cursor: default;
     }
-
-    .product img {
+    .product-card:hover {
+      box-shadow: 0 0 20px rgb(29 185 84 / 0.7);
+    }
+    .product-img {
       width: 100%;
-      height: 180px;
-      object-fit: cover;
       border-radius: 6px;
+      object-fit: cover;
+      height: 180px;
+      margin-bottom: 15px;
+      user-select: none;
     }
-
-    .product h3 {
-      margin: 10px 0 5px;
-      font-size: 1.2rem;
+    .product-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #111;
+      min-height: 48px;
     }
-
-    .product .price {
+    .product-price {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 15px;
       color: #1db954;
-      font-weight: bold;
-      margin-bottom: 10px;
     }
-
-    .product a {
+    .btn-order {
       background-color: #1db954;
       color: white;
-      padding: 10px 15px;
+      text-align: center;
+      padding: 12px 0;
+      border-radius: 6px;
       text-decoration: none;
-      border-radius: 5px;
-      display: inline-block;
-      margin-top: 10px;
+      font-weight: 700;
+      transition: background-color 0.3s ease;
+      user-select: none;
+      display: block;
     }
-
+    .btn-order:hover {
+      background-color: #17a74a;
+    }
+    /* קטגוריות */
+    section.category-section {
+      margin-bottom: 50px;
+    }
+    section.category-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      border-bottom: 3px solid #1db954;
+      padding-bottom: 6px;
+      color: #111;
+    }
+    /* שאלות נפוצות */
+    #faq {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgb(0 0 0 / 0.1);
+      margin-bottom: 50px;
+    }
+    #faq h2 {
+      margin-bottom: 20px;
+      color: #111;
+    }
+    .faq-item {
+      margin-bottom: 15px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 12px;
+      cursor: pointer;
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+    .faq-question {
+      font-weight: 700;
+      font-size: 1.1rem;
+      position: relative;
+      padding-right: 25px;
+    }
+    .faq-question::after {
+      content: '+';
+      position: absolute;
+      right: 0;
+      top: 0;
+      font-size: 1.3rem;
+      transition: transform 0.3s ease;
+      user-select: none;
+    }
+    .faq-item.open .faq-question::after {
+      content: '-';
+      transform: rotate(180deg);
+    }
+    .faq-answer {
+      margin-top: 8px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      color: #555;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+    }
+    /* טופס צור קשר */
+    #contact {
+      background: white;
+      padding: 25px 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 12px rgb(0 0 0 / 0.1);
+      margin-bottom: 50px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #contact h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #111;
+    }
+    #contact form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    #contact label {
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #444;
+    }
+    #contact input, #contact textarea {
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      resize: vertical;
+      font-family: inherit;
+    }
+    #contact textarea {
+      min-height: 100px;
+    }
+    #contact button {
+      background-color: #1db954;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+    #contact button:hover {
+      background-color: #17a74a;
+    }
+    /* ביקורות לקוחות */
+    #reviews {
+      background: white;
+      border-radius: 8px;
+      padding: 25px 20px;
+      box-shadow: 0 0 12px rgb(0 0 0 / 0.1);
+      max-width: 800px;
+      margin: 0 auto 50px auto;
+    }
+    #reviews h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #111;
+    }
+    .review {
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 15px;
+      margin-bottom: 15px;
+      font-style: italic;
+      color: #555;
+    }
+    .review:last-child {
+      border-bottom: none;
+    }
+    .review strong {
+      color: #111;
+      font-weight: 700;
+    }
     footer {
-      background-color: #1a1a1a;
+      background-color: #111;
       color: #bbb;
       text-align: center;
-      padding: 20px;
-      margin-top: 40px;
+      padding: 15px 10px;
       font-size: 0.9rem;
+      user-select: none;
     }
-
+    /* רספונסיביות למובייל */
     @media (max-width: 600px) {
-      .hero {
-        font-size: 1.4rem;
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav ul {
+        gap: 10px;
+      }
+      .banner {
+        height: 180px;
+        font-size: 1.5rem;
       }
     }
   </style>
 </head>
-
 <body>
   <header>
-    <h1>Style Next Tech</h1>
+    <div class="logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">Style Next Tech</div>
+    <nav>
+      <ul>
+        <li><a href="#men" class="active">גברים</a></li>
+        <li><a href="#jewelry">תכשיטים</a></li>
+        <li><a href="#gadgets">גאדג'טים</a></li>
+        <li><a href="#shoes">נעליים</a></li>
+        <li><a href="#fitness">אביזרים לכושר</a></li>
+        <li><a href="#faq">שאלות נפוצות</a></li>
+        <li><a href="#contact">צור קשר</a></li>
+        <li><a href="#reviews">ביקורות</a></li>
+      </ul>
+    </nav>
   </header>
-  <nav>
-    <a href="#gadget">גאדג'טים</a>
-    <a href="#jewelry">תכשיטים</a>
-    <a href="#shoes">נעליים</a>
-    <a href="#fitness">אביזרי כושר</a>
-    <a href="#contact">צור קשר</a>
-  </nav>
-  <section class="hero">
-    חנות חדשנית לגאדג'טים ואביזרים בישראל
-  </section>
-  <section class="products">
-    <div class="product">
-      <img src="https://cdn.shopify.com/s/files/1/0533/2089/products/Smartwatch_Fitness_Sport_Stylish_Unisex_Leather_Belt_-_Golden_White_350x.jpg?v=1612964345" alt="שעון חכם">
-      <h3>שעון חכם עם רצועת עור</h3>
-      <div class="price">₪399</div>
-      <a href="https://wa.me/972523135770?text=שלום,%20אני%20רוצה%20להזמין%20שעון%20חכם%20עם%20רצועת%20עור" target="_blank">הזמן עכשיו</a>
+  <main>
+    <div class="banner">
+      חנות גאדג'טים ואביזרים מובילה בישראל
     </div>
-    <div class="product">
-      <img src="https://cdn.shopify.com/s/files/1/0533/2089/products/Wireless_Earbuds_Pro_Black_350x.jpg?v=1612964346" alt="אוזניות אלחוטיות">
-      <h3>אוזניות אלחוטיות Pro</h3>
-      <div class="price">₪249</div>
-      <a href="https://wa.me/972523135770?text=שלום,%20אני%20רוצה%20להזמין%20אוזניות%20אלחוטיות%20Pro" target="_blank">הזמן עכשיו</a>
-    </div>
-    <div class="product">
-      <img src="https://cdn.shopify.com/s/files/1/0533/2089/products/Fitness_Tracker_Activity_Step_Counter_Black_350x.jpg?v=1612964347" alt="צמיד כושר">
-      <h3>צמיד כושר מד צעדים</h3>
-      <div class="price">₪179</div>
-      <a href="https://wa.me/972523135770?text=שלום,%20אני%20רוצה%20להזמין%20צמיד%20כושר%20מד%20צעדים" target="_blank">הזמן עכשיו</a>
-    </div>
-  </section>
-  <footer id="contact">
-    טלפון להזמנות: 054-867-3111 | כל הזכויות שמורות &copy; 2025 Style Next Tech
-  </footer>
-  <!--Start of Tawk.to Script-->
-  <script type="text/javascript">
-    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-    (function () {
-      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-      s1.async = true;
-      s1.src = 'https://embed.tawk.to/684d2f589a4b03190ad91a1a/1itmo1s9n';
-      s1.charset = 'UTF-8';
-      s1.setAttribute('crossorigin', '*');
-      s0.parentNode.insertBefore(s1, s0);
-    })();
-  </script>
-  <!--End of Tawk.to Script-->
-</body>
 
-</html>
+    <!-- קטגוריית גברים -->
+    <section id="men" class="category-section">
+      <h2>גברים</h2>
+      <div class="products-grid">
+        <article class="product-card">
+          <img class="product-img" src="https://cdn.shopify.com/s/files/1/0533/2089/products/Smartwatch_Fitness_Sport_Stylish_Unisex_Leather_Belt_-_Golden_White_350x.jpg?v=1612964345" alt="שעון חכם עם רצועת עור" />
+          <h3 class="product-title">שעון חכם עם רצועת עור</h3>
+          <div class="product-price">₪399</div>
+          <a class="btn-order" href="https://wa.me/972523135770?text=שלום,%20אני%20רוצה%20להזמין%20שעון%20חכם%20עם%20רצועת%20עור" target="_blank" rel="noopener noreferrer">הזמן עכשיו</a>
+        </article>
+        <!-- הוסף מוצרים נוספים לגברים כאן -->
+      </div>
+    </section>
+
+    <!-- קטגוריית תכשיטים -->
+    <section id="jewelry" class="category-section">
+      <h2>תכשיטים</h2>
+      <div class="products-grid">
+        <!-- כאן תוכל להוסיף מוצרים לתכשיטים -->
+        <article class="product-card">
+          <img class="product-img" src="https://cdn.shopify.com/s/files/1/0533/2089/products/Gold_Bracelet_350x.jpg" alt="צמיד זהב איכותי" />
+          <h3 class="product-title">צמיד זהב איכותי</h3>
+          <div class="product-price">₪299</div>
+          <a class="btn-order" href="https://wa.me/972523135770?text=שלום,%20אני%20רוצה%20להזמין%20צמיד%20זהב%20איכותי" target="_blank" rel="noopener noreferrer">הזמן עכשיו</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- קטגוריית גאדג'טים -->
+    <section id="gadgets" class="category-section">
+      <h2>גאדג'טים</h2>
+      <div class="products-grid">
+        <article class="product-card">
+          <img class="product-img" src="https://cdn.shopify.com/s/files/1/0533/2089/products/Wireless_Earbuds_Pro_Black_350x.jpg?v=1612964346" alt="אוזניות אלחוטיות Pro" />
+          <h3 class="product-title">אוזניות אלחוטיות Pro</h3>
+          <div class="product-price">₪249</div>
+          <a class="btn-order" href="https://wa.me/972523135770?text=שלום,%20אני%20רוצה%20להזמין%20אוזניות%20אלחוטיות%20Pro" target="_blank" rel="noopener noreferrer">הזמן עכשיו</a>
+        </article>
+        <article class="product-card">
+          <img class="product-img" src="https://cdn.shopify.com/s/files/1/0533/2089/products/Fitness_Tracker_Activity_Step_Counter_Black_350x.jpg?v=1612964347" alt="צמיד כושר מד צעדים" />
+          <h3 class="product-title">צמיד כושר מד צעדים</h3>
+          <div class="product-price">₪179</div>
+          <a class="btn-order" href="https://wa.me/972523135770?text=שלום,%20אני%20רוצה%20להזמין%20צמיד%20כושר%20מד%20צעדים" target="_blank" rel="noopener noreferrer">הזמן עכשיו</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- קטגוריית נעליים -->
+    <section id="shoes" class="category-section">
+      <h2>נעליים</h2>
+      <div class="products-grid">
+        <!-- הוסף כאן מוצרים לנעליים -->
+        <article class="product-card">
+          <img class="product-img" src="https://cdn.shopify.com/s/files/1/0533/2089/products/Sneakers_Black_350x.jpg" alt="נעלי סניקרס שחורות" />
+          <h3 class="product-title">נעלי סניקרס שחורות</h3>
+          <div class="product-price">₪329</div>
+          <a class="btn-order" href="https://wa.me/972523135770?text=שלום,%20אני%20רוצה%20להזמין%20נעלי%20סניקרס%20שחורות" target="_blank" rel="noopener noreferrer">הזמן עכשיו</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- קטגוריית אביזרים לכושר -->
+    <section id="fitness" class="category-section">
+      <h2>אביזרים לכושר</h2>
+      <div class="products-grid">
+        <!-- הוסף כאן מוצרים לכושר -->
+        <article class="product-card">
+          <img class="product-img" src="https://cdn.shopify.com/s/files/1/0533/2089/products/Fitness_Band_Black_350x.jpg" alt="רצועת כושר שחורה" />
+          <h3 class="product-title">רצועת כושר שחורה</h3>
+          <div class="product-price">₪99</div>
+          <a class="btn-order" href="https://wa.me/972523135770?text=שלום,%20אני%20רוצה%20להזמין%20רצועת%20כושר%20שחורה" target="_blank" rel="noopener noreferrer">הזמן עכשיו</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- שאלות נפוצות -->
+    <section id="faq">
+      <h2>שאלות נפוצות</h2>
+      <div class="faq-item">
+        <div class="faq-question">מהי מדיניות המשלוחים שלכם?</div>
+        <div class="faq-answer">משלוחים לוקחים כ-30 ימים ומגיעים לסניף הדואר הקרוב אליך.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">אילו אמצעי תשלום זמינים?</div>
+        <div class="faq-answer">ניתן לשלם דרך ביט וקאשקאש, אין אפשרות כרטיס אשראי באתר.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">האם יש אחריות על המוצרים?</div>
+        <div class="faq-answer">אין אחריות על המוצרים
