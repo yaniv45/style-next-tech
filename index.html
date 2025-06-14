@@ -1,146 +1,110 @@
 <!DOCTYPE html>
 <html lang="he">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="חנות האונליין Style Next Tech - גאדג'טים, תכשיטים, נעליים, ועוד. קנו עכשיו!">
+  <meta name="keywords" content="חנות, גאדג'טים, תכשיטים, נעליים, טכנולוגיה, Style Next Tech">
+  <meta name="author" content="יניב אסרף">
   <title>Style Next Tech</title>
-  <style>
-    body { font-family: Arial, sans-serif; direction: rtl; margin: 0; background: #f5f7fa; color: #333; }
-    header { background: linear-gradient(45deg, #1e1e2f, #3a3a5a); color: #fff; padding: 30px 20px; text-align: center; }
-    nav { background: #27293d; color: #fff; display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; padding: 10px 0; }
-    nav a { color: #fff; text-decoration: none; padding: 10px 20px; border-radius: 8px; background: #4e4e6a; transition: 0.3s; cursor: pointer; }
-    nav a:hover { background: #6c6c89; }
-    .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 20px; }
-    .product { background: #fff; border-radius: 12px; padding: 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: relative; transition: transform 0.3s ease; display: none; }
-    .product:hover { transform: scale(1.03); }
-    .tag { position: absolute; top: 10px; left: 10px; background: orange; color: #fff; padding: 5px; border-radius: 5px; font-size: 12px; }
-    .reviews, .contact, .footer { padding: 20px; background: #eef0f3; margin-top: 30px; border-radius: 12px; }
-    .review-boxes { display: flex; flex-direction: column; gap: 10px; }
-    .review-box { background: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
-    .back-to-top { position: fixed; bottom: 20px; left: 20px; background: #222; color: #fff; padding: 10px 15px; border-radius: 50%; cursor: pointer; font-weight: bold; }
-    .search-box { text-align: center; padding: 20px; }
-    .search-box input { width: 60%; padding: 10px; border: 1px solid #aaa; border-radius: 8px; font-size: 16px; }
-    img.product-image { max-width: 100%; border-radius: 8px; margin-top: 10px; }
-    form input, form textarea { display: block; width: 100%; margin-bottom: 15px; padding: 10px; border: 1px solid #ccc; border-radius: 8px; font-size: 16px; }
-    form button { padding: 10px 20px; background: #1e90ff; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; }
-    form button:hover { background: #006ad1; }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <header>
     <h1>Style Next Tech</h1>
-    <p>החנות המובילה לטכנולוגיה ואופנה</p>
+    <nav>
+      <ul>
+        <li><a href="#home">בית</a></li>
+        <li><a href="#categories">קטגוריות</a></li>
+        <li><a href="#products">מוצרים</a></li>
+        <li><a href="#reviews">ביקורות</a></li>
+        <li><a href="#faq">שאלות נפוצות</a></li>
+        <li><a href="#contact">צור קשר</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <nav>
-    <a onclick="filterCategory('גברים')">גברים</a>
-    <a onclick="filterCategory('תכשיטים')">תכשיטים</a>
-    <a onclick="filterCategory('גאדג\'טים')">גאדג'טים</a>
-    <a onclick="filterCategory('נעליים')">נעליים</a>
-    <a onclick="filterCategory('אביזרים לכושר')">אביזרים לכושר</a>
-    <a href="#reviews">חוות דעת</a>
-    <a href="#contact">צור קשר</a>
-  </nav>
+  <main>
+    <section id="home">
+      <h2>ברוכים הבאים לחנות Style Next Tech</h2>
+      <p>מוצרים נבחרים באיכות גבוהה - במחירים משתלמים</p>
+      <input type="text" id="search" placeholder="חפש מוצר...">
+    </section>
 
-  <div class="search-box">
-    <input type="text" placeholder="חפש מוצר..." onkeyup="searchProduct(this.value)" />
-  </div>
+    <section id="categories">
+      <h2>קטגוריות</h2>
+      <ul>
+        <li><a href="#products" onclick="filterCategory('גברים')">גברים</a></li>
+        <li><a href="#products" onclick="filterCategory('תכשיטים')">תכשיטים</a></li>
+        <li><a href="#products" onclick="filterCategory('גאדג\'טים')">גאדג'טים</a></li>
+        <li><a href="#products" onclick="filterCategory('נעליים')">נעליים</a></li>
+        <li><a href="#products" onclick="filterCategory('אביזרים לכושר')">אביזרים לכושר</a></li>
+      </ul>
+    </section>
 
-  <div id="products" class="product-grid">
-    <!-- מוצרים יופיעו כאן -->
-  </div>
+    <section id="products">
+      <h2>מוצרים</h2>
+      <div id="product-list">
+        <!-- כאן יתווספו המוצרים עם JavaScript -->
+      </div>
+    </section>
 
-  <section id="reviews" class="reviews">
-    <h2>חוות דעת של לקוחות</h2>
-    <div class="review-boxes" id="review-boxes"></div>
-  </section>
+    <section id="reviews">
+      <h2>ביקורות לקוחות</h2>
+      <div class="review-box">
+        <p>״מוצר איכותי, הגיע בזמן - מאוד מרוצה!״ - דנה מ.</p>
+      </div>
+      <div class="review-box">
+        <p>״שירות לקוחות מעולה, בהחלט אזמין שוב״ - אורן ש.</p>
+      </div>
+    </section>
 
-  <section id="contact" class="contact">
-    <h2>צור קשר</h2>
-    <form onsubmit="sendMessage(event)">
-      <input type="text" name="name" placeholder="שם מלא" required />
-      <input type="tel" name="phone" placeholder="טלפון" required />
-      <input type="email" name="email" placeholder="דוא"ל" required />
-      <textarea name="message" rows="4" placeholder="מה הבעיה?" required></textarea>
-      <button type="submit">שלח</button>
-    </form>
-    <p>לשירות לקוחות ניתן להתקשר: <strong>054-8673111</strong></p>
-  </section>
+    <section id="faq">
+      <h2>שאלות נפוצות</h2>
+      <details>
+        <summary>מה זמן המשלוח?</summary>
+        <p>עד 4 שבועות. החבילה תגיע לסניף הדואר הקרוב לביתכם.</p>
+      </details>
+      <details>
+        <summary>האם ניתן לשלם באשראי?</summary>
+        <p>לא. התשלום דרך ביט בלבד.</p>
+      </details>
+      <details>
+        <summary>מאיפה מגיעים המוצרים?</summary>
+        <p>המוצרים נשלחים מהספקים שלנו דרך אלי אקספרס.</p>
+      </details>
+      <details>
+        <summary>איך אני עוקב אחרי ההזמנה?</summary>
+        <p>לאחר ההזמנה נשלח אליך מספר מעקב. ניתן לעקוב באתר <a href="https://mypost.israelpost.co.il/" target="_blank">Israel Post</a>.</p>
+      </details>
+    </section>
 
-  <div class="footer">
-    <p>© 2025 Style Next Tech</p>
-  </div>
+    <section id="contact">
+      <h2>צור קשר</h2>
+      <form onsubmit="sendForm(event)">
+        <label for="name">שם:</label>
+        <input type="text" id="name" required>
 
-  <div class="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">↑</div>
+        <label for="phone">טלפון:</label>
+        <input type="text" id="phone" required>
 
-  <script>
-    const reviews = [
-      '"הזמנתי שעון והוא הגיע תוך כמה ימים. שירות נהדר!" - דנה',
-      '"המכשיר עיסוי איכותי מאוד, מרוצה מהקנייה." - אורי',
-      '"קיבלתי שירות דרך הוואטסאפ ממש נוח ומהיר!" - מיכל',
-      '"המוצרים איכותיים מאוד והשירות מעולה!" - אלעד',
-      '"שירות מקצועי ואדיב, ממליץ בחום!" - יוסי',
-      '"המחיר ממש משתלם והמוצר מעולה." - תמר'
-    ];
+        <label for="message">ההודעה שלך:</label>
+        <textarea id="message" required></textarea>
 
-    const products = [
-      { name: 'שעון חכם Galaxy Watch 7 Ultra', category: "גאדג'טים", price: '100 ש"ח', description: 'Smartwatch לגברים, GPS, NFC, AMOLED', img: 'images/watch1.png', popular: true },
-      { name: 'משקפי שמש חכמות', category: "גאדג'טים", price: '50 ש"ח', description: 'Bluetooth v5.3, אוזניות משולבות למשקפיים', img: 'images/glasses1.png', popular: true },
-      { name: 'שעון חכם Ultra X3 Pro', category: "גאדג'טים", price: '120 ש"ח', description: 'טעינה אלחוטית, 49mm AMOLED', img: 'images/watch2.png' },
-      { name: 'מכשיר עיסוי', category: 'אביזרים לכושר', price: '100 ש"ח', description: 'ציוד כושר, מקל רוד פרקושן', img: 'images/massage1.png' },
-      { name: 'נעלי ספורט איכותיות', category: 'נעליים', price: '150 ש"ח', description: 'נוחות במיוחד לריצה ויום-יום', img: 'images/shoes1.png' },
-      { name: 'שרשרת כסף', category: 'תכשיטים', price: '70 ש"ח', description: 'עיצוב מודרני, מתנה מושלמת', img: 'images/necklace1.png' },
-      { name: 'טבעת חכמה', category: 'תכשיטים', price: '80 ש"ח', description: 'מעקב בריאות, Bluetooth', img: 'images/ring1.png' }
-    ];
+        <button type="submit">שלח</button>
+      </form>
+      <p>טלפון לשירות לקוחות: 0548673111</p>
+    </section>
+  </main>
 
-    function renderProducts(list = products) {
-      const container = document.getElementById('products');
-      container.innerHTML = list.map(p => `
-        <div class="product" style="display:block" data-category="${p.category}" data-name="${p.name}">
-          ${p.popular ? '<span class="tag">מוצר שקנו הרבה</span>' : ''}
-          <h3>${p.name}</h3>
-          <p>${p.description}</p>
-          <p>מחיר: ${p.price}</p>
-          <img class="product-image" src="${p.img}" alt="${p.name}" />
-        </div>
-      `).join('');
-    }
+  <footer>
+    <p>&copy; 2025 Style Next Tech. כל הזכויות שמורות.</p>
+    <button onclick="scrollToTop()">חזור למעלה</button>
+  </footer>
 
-    function rotateReviews() {
-      const box = document.getElementById('review-boxes');
-      const today = new Date().getDate();
-      const start = today % reviews.length;
-      const toShow = [
-        reviews[start],
-        reviews[(start + 1) % reviews.length]
-      ];
-      box.innerHTML = toShow.map(r => `<div class='review-box'>${r}</div>`).join('');
-    }
-
-    function searchProduct(term) {
-      const items = document.querySelectorAll('.product');
-      term = term.trim();
-      items.forEach(item => {
-        const name = item.dataset.name || "";
-        const text = item.innerText || "";
-        item.style.display = (name.includes(term) || text.includes(term)) ? 'block' : 'none';
-      });
-    }
-
-    function filterCategory(category) {
-      const items = document.querySelectorAll('.product');
-      items.forEach(item => {
-        item.style.display = (item.dataset.category === category) ? 'block' : 'none';
-      });
-    }
-
-    function sendMessage(e) {
-      e.preventDefault();
-      alert("ההודעה נשלחה! נחזור אליך בהקדם.");
-    }
-
-    renderProducts();
-    rotateReviews();
-  </script>
+  <script src="script.js"></script>
 </body>
+
 </html>
