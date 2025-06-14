@@ -1,58 +1,177 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Style Next Tech - חנות גאדג'טים ואביזרים</title>
-    <meta name="description" content="חנות אונליין מובילה לגאדג'טים, תכשיטים, נעליים ואביזרי כושר – עם שירות מהיר ותשלום ב-BIT" />
-    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/891/891419.png" type="image/png" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Style Next Tech - חנות גאדג'טים ואביזרים</title>
+  <meta name="description" content="חנות לגאדג'טים, אביזרים, תכשיטים ונעליים - משלוחים לכל הארץ!" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Rubik', sans-serif;
+      background-color: #f9f9f9;
+      color: #222;
+    }
 
-    <style>
-        /* ... הסגנונות שלך נשמרו בדיוק כמו בקוד הקודם ... */
-        /* לא מציג כאן שוב את כל ה-CSS בשביל קיצור, אבל בקובץ שלך תשאיר את כולו כמו שהיה */
-    </style>
+    header {
+      background-color: #1a1a1a;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      background-color: #333;
+    }
+
+    nav a {
+      color: white;
+      padding: 12px 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      background-color: #1db954;
+    }
+
+    .hero {
+      background: url('https://images.unsplash.com/photo-1580910051070-20fbca2829fa?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+      height: 250px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-size: 2rem;
+      font-weight: bold;
+      text-shadow: 2px 2px 6px #000;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .product {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      text-align: center;
+      padding: 15px;
+    }
+
+    .product img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    .product h3 {
+      margin: 10px 0 5px;
+      font-size: 1.2rem;
+    }
+
+    .product .price {
+      color: #1db954;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .product a {
+      background-color: #1db954;
+      color: white;
+      padding: 10px 15px;
+      text-decoration: none;
+      border-radius: 5px;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    footer {
+      background-color: #1a1a1a;
+      color: #bbb;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <header>
-        <div class="logo">Style Next Tech</div>
-        <nav>
-            <ul>
-                <li><a href="#">גברים</a></li>
-                <li><a href="#">תכשיטים</a></li>
-                <li><a href="#">גאדג'טים</a></li>
-                <li><a href="#">נעליים</a></li>
-                <li><a href="#">אביזרים לכושר</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <main>
-        <div class="banner">
-            חנות גאדג'טים ואביזרים מובילה בישראל
-        </div>
-
-        <section class="products-grid">
-            <!-- הקלפים שלך נשארו אותו הדבר... -->
-            <!-- מוצרים -->
-        </section>
-    </main>
-
-    <footer>
-        כל הזכויות שמורות &copy; 2025 Style Next Tech | טלפון להזמנות: 052-3135770
-    </footer>
-
-    <!--Start of Tawk.to Script-->
-    <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/684d2f589a4b03190ad91a1a/1itmo1s9n';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
+  <header>
+    <h1>Style Next Tech</h1>
+  </header>
+  <nav>
+    <a href="#gadget">גאדג'טים</a>
+    <a href="#jewelry">תכשיטים</a>
+    <a href="#shoes">נעליים</a>
+    <a href="#fitness">אביזרי כושר</a>
+    <a href="#contact">צור קשר</a>
+  </nav>
+  <section class="hero">
+    חנות חדשנית לגאדג'טים ואביזרים בישראל
+  </section>
+  <section class="products">
+    <div class="product">
+      <img src="https://cdn.shopify.com/s/files/1/0533/2089/products/Smartwatch_Fitness_Sport_Stylish_Unisex_Leather_Belt_-_Golden_White_350x.jpg?v=1612964345" alt="שעון חכם">
+      <h3>שעון חכם עם רצועת עור</h3>
+      <div class="price">₪399</div>
+      <a href="https://wa.me/972523135770?text=שלום,%20אני%20רוצה%20להזמין%20שעון%20חכם%20עם%20רצועת%20עור" target="_blank">הזמן עכשיו</a>
+    </div>
+    <div class="product">
+      <img src="https://cdn.shopify.com/s/files/1/0533/2089/products/Wireless_Earbuds_Pro_Black_350x.jpg?v=1612964346" alt="אוזניות אלחוטיות">
+      <h3>אוזניות אלחוטיות Pro</h3>
+      <div class="price">₪249</div>
+      <a href="https://wa.me/972523135770?text=שלום,%20אני%20רוצה%20להזמין%20אוזניות%20אלחוטיות%20Pro" target="_blank">הזמן עכשיו</a>
+    </div>
+    <div class="product">
+      <img src="https://cdn.shopify.com/s/files/1/0533/2089/products/Fitness_Tracker_Activity_Step_Counter_Black_350x.jpg?v=1612964347" alt="צמיד כושר">
+      <h3>צמיד כושר מד צעדים</h3>
+      <div class="price">₪179</div>
+      <a href="https://wa.me/972523135770?text=שלום,%20אני%20רוצה%20להזמין%20צמיד%20כושר%20מד%20צעדים" target="_blank">הזמן עכשיו</a>
+    </div>
+  </section>
+  <footer id="contact">
+    טלפון להזמנות: 054-867-3111 | כל הזכויות שמורות &copy; 2025 Style Next Tech
+  </footer>
+  <!--Start of Tawk.to Script-->
+  <script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function () {
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/684d2f589a4b03190ad91a1a/1itmo1s9n';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin', '*');
+      s0.parentNode.insertBefore(s1, s0);
     })();
-    </script>
-    <!--End of Tawk.to Script-->
+  </script>
+  <!--End of Tawk.to Script-->
 </body>
+
 </html>
