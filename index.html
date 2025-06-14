@@ -1,144 +1,108 @@
-<!DOCTYPE html><html lang="he"><head>
+<!DOCTYPE html>
+<html lang="he">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="חנות אונליין אמינה למוצרים חכמים, תכשיטים, נעליים ואביזרי כושר - Style Next Tech">
-  <meta name="keywords" content="שעון חכם, תכשיטים, גאדג'טים, נעליים, כושר, חנות אינטרנט, style next tech">
+  <meta name="description" content="Style Next Tech - חנות אונליין למוצרים חכמים, אופנה וגאדג'טים. הזמנות ישירות דרך וואטסאפ ותשלום בביט.">
+  <meta name="keywords" content="שעון חכם, משקפי שמש חכמות, גאדג'טים, כושר, תכשיטים, Style Next Tech">
   <meta name="author" content="יניב אסרף">
-  <title>Style Next Tech - מוצרים חכמים באחריות</title>
+  <title>Style Next Tech</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      direction: rtl;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-    }
-    header, footer {
-      background-color: #222;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-    }
-    nav ul {
-      list-style-type: none;
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      padding: 0;
-    }
-    nav ul li a {
-      text-decoration: none;
-      color: #fff;
-    }
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-      padding: 2rem;
-    }
-    .product {
-      border: 1px solid #ddd;
-      border-radius: 12px;
-      padding: 1rem;
-      background: #fff;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .product img {
-      max-width: 100%;
-      border-radius: 8px;
-    }
-    .reviews {
-      padding: 2rem;
-    }
-    .review-box {
-      border: 1px solid #ccc;
-      background: #fff;
-      border-radius: 12px;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    }
-    .faq {
-      padding: 2rem;
-    }
-    .faq h3 {
-      margin-top: 1rem;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      max-width: 400px;
-      margin: 0 auto;
-    }
-    form input, form textarea {
-      margin-bottom: 1rem;
-      padding: 0.5rem;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-    }
-    form button {
-      padding: 0.5rem;
-      background-color: #222;
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-  </style>
-</head><body>
+</head>
+<body>
   <header>
     <h1>Style Next Tech</h1>
     <nav>
       <ul>
-        <li><a href="#gadgets">גאדג'טים</a></li>
-        <li><a href="#jewelry">תכשיטים</a></li>
-        <li><a href="#shoes">נעליים</a></li>
-        <li><a href="#fitness">כושר</a></li>
-        <li><a href="#reviews">חוות דעת</a></li>
+        <li><a href="#home">בית</a></li>
+        <li><a href="#categories">קטגוריות</a></li>
+        <li><a href="#products">מוצרים</a></li>
+        <li><a href="#reviews">ביקורות</a></li>
         <li><a href="#faq">שאלות נפוצות</a></li>
         <li><a href="#contact">צור קשר</a></li>
       </ul>
     </nav>
-  </header>  <section class="products" id="gadgets">
-    <div class="product">
-      <h3>שעון חכם</h3>
-      <img src="images/watch1.png" alt="שעון חכם">
-      <p>מוצר שקנו הרבה</p>
-      <a href="https://wa.me/972548673111" target="_blank">הזמן עכשיו</a>
+  </header>
+
+  <section id="home">
+    <h2>ברוכים הבאים לחנות שלנו</h2>
+    <p>ברוכים הבאים ל-Style Next Tech! כאן תמצאו מוצרים חכמים, טרנדיים, איכותיים, עם שירות אישי ותשלום קל.</p>
+  </section>
+
+  <section id="categories">
+    <h2>קטגוריות</h2>
+    <ul>
+      <li><a href="#gadgets">גאדג'טים</a></li>
+      <li><a href="#men">גברים</a></li>
+      <li><a href="#jewelry">תכשיטים</a></li>
+      <li><a href="#shoes">נעליים</a></li>
+      <li><a href="#fitness">אביזרים לכושר</a></li>
+    </ul>
+  </section>
+
+  <section id="products">
+    <h2>המוצרים שלנו</h2>
+    <div class="product-grid">
+      <div class="product">
+        <img src="images/צילום מסך 2025-05-09 224400.png" alt="שעון חכם 1">
+        <h3>שעון חכם 1</h3>
+        <p>מוצר שקנו הרבה</p>
+        <a href="https://wa.me/972548673111" target="_blank">הזמן עכשיו</a>
+      </div>
+      <div class="product">
+        <img src="images/צילום מסך 2025-05-10 165510.png" alt="משקפי שמש חכמות">
+        <h3>משקפי שמש חכמות</h3>
+        <p>מוצר שקנו הרבה</p>
+        <a href="https://wa.me/972548673111" target="_blank">הזמן עכשיו</a>
+      </div>
+      <!-- הוספת מוצרים נוספים דומה לקוד שלמעלה -->
     </div>
-    <div class="product">
-      <h3>משקפיים חכמות</h3>
-      <img src="images/glasses.png" alt="משקפיים חכמות">
-      <p>מוצר שקנו הרבה</p>
-      <a href="https://wa.me/972548673111" target="_blank">הזמן עכשיו</a>
-    </div>
-  </section>  <section class="reviews" id="reviews">
-    <h2>חוות דעת</h2>
+  </section>
+
+  <section id="reviews">
+    <h2>ביקורות לקוחות</h2>
     <div class="review-box">
-      <p>מוצר מעולה, הגיע תוך שבועיים! ממליצה בחום.</p>
+      <p>מוצר מדהים! שירות מהיר ואמין.</p>
+      <span>- דוד מ.</span>
     </div>
     <div class="review-box">
-      <p>קניתי כמתנה, השירות היה נהדר והמוצר איכותי.</p>
+      <p>המוצר הגיע בדיוק כמו בתמונות. תודה!</p>
+      <span>- שירן ב.</span>
     </div>
-  </section>  <section class="faq" id="faq">
+  </section>
+
+  <section id="faq">
     <h2>שאלות נפוצות</h2>
-    <h3>תוך כמה זמן מגיע המשלוח?</h3>
-    <p>בדרך כלל עד 4 שבועות. המשלוח מסופק לסניף הדואר הקרוב לביתך.</p>
-    <h3>מהי מדיניות ההחזרות?</h3>
-    <p>ניתן להחזיר מוצר תוך 14 יום כל עוד לא נעשה בו שימוש.</p>
-    <h3>איך ניתן ליצור קשר?</h3>
-    <p>באמצעות טופס יצירת קשר בהמשך העמוד או בטלפון לשירות לקוחות.</p>
-  </section>  <section id="contact">
+    <details>
+      <summary>תוך כמה זמן מגיע המשלוח?</summary>
+      <p>המשלוח לוקח לרוב עד ארבעה שבועות ומגיע לסניף הדואר הקרוב לביתך.</p>
+    </details>
+    <details>
+      <summary>איך אפשר לשלם?</summary>
+      <p>ניתן לשלם באמצעות ביט או קאשקאש.</p>
+    </details>
+    <details>
+      <summary>איך מזמינים?</summary>
+      <p>לחצו על כפתור ההזמנה בוואטסאפ בעמוד המוצר.</p>
+    </details>
+  </section>
+
+  <section id="contact">
     <h2>צור קשר</h2>
-    <form action="mailto:youremail@example.com" method="POST">
-      <input type="text" name="name" placeholder="שם מלא" required>
-      <input type="tel" name="phone" placeholder="טלפון" required>
-      <textarea name="message" placeholder="מה הבעיה או השאלה?" required></textarea>
+    <form action="mailto:your@email.com" method="post">
+      <label for="name">שם:</label>
+      <input type="text" id="name" name="name" required>
+      <label for="phone">טלפון:</label>
+      <input type="text" id="phone" name="phone" required>
+      <label for="message">מה הבעיה?</label>
+      <textarea id="message" name="message" required></textarea>
       <button type="submit">שלח</button>
     </form>
-    <p>שירות לקוחות: 054-8673111</p>
-  </section>  <footer>
+    <p>טלפון לשירות לקוחות: 054-8673111</p>
+  </section>
+
+  <footer>
     <p>&copy; 2025 Style Next Tech. כל הזכויות שמורות.</p>
   </footer>
-</body></html>
+</body>
+</html>
