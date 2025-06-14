@@ -1,200 +1,144 @@
-<!DOCTYPE html><html lang="he">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Style Next Tech - חנות אונליין לגאדג'טים, תכשיטים, נעליים ואביזרי כושר במחירים משתלמים!" />
-  <meta name="keywords" content="גאדג'טים, תכשיטים, נעליים, כושר, שעון חכם, חנות אונליין, style next tech" />
-  <meta name="author" content="יניב אסרף" />
-  <title>Style Next Tech</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
-<body>
+<!DOCTYPE html><html lang="he"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="חנות אונליין אמינה למוצרים חכמים, תכשיטים, נעליים ואביזרי כושר - Style Next Tech">
+  <meta name="keywords" content="שעון חכם, תכשיטים, גאדג'טים, נעליים, כושר, חנות אינטרנט, style next tech">
+  <meta name="author" content="יניב אסרף">
+  <title>Style Next Tech - מוצרים חכמים באחריות</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      direction: rtl;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+    header, footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+    nav ul {
+      list-style-type: none;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      padding: 0;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      padding: 2rem;
+    }
+    .product {
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 1rem;
+      background: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .product img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+    .reviews {
+      padding: 2rem;
+    }
+    .review-box {
+      border: 1px solid #ccc;
+      background: #fff;
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .faq {
+      padding: 2rem;
+    }
+    .faq h3 {
+      margin-top: 1rem;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    form input, form textarea {
+      margin-bottom: 1rem;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    form button {
+      padding: 0.5rem;
+      background-color: #222;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head><body>
   <header>
     <h1>Style Next Tech</h1>
     <nav>
       <ul>
-        <li><a href="#home">בית</a></li>
-        <li><a href="#categories">קטגוריות</a></li>
-        <li><a href="#products">מוצרים</a></li>
+        <li><a href="#gadgets">גאדג'טים</a></li>
+        <li><a href="#jewelry">תכשיטים</a></li>
+        <li><a href="#shoes">נעליים</a></li>
+        <li><a href="#fitness">כושר</a></li>
         <li><a href="#reviews">חוות דעת</a></li>
         <li><a href="#faq">שאלות נפוצות</a></li>
         <li><a href="#contact">צור קשר</a></li>
       </ul>
     </nav>
-  </header>  <main>
-    <section id="home">
-      <h2>ברוכים הבאים ל-Style Next Tech</h2>
-      <p>החנות שלך למוצרים חכמים, סטייל, ותוספות מגניבות לחיים</p>
-      <input type="text" id="searchBox" placeholder="חפש מוצר..." />
-    </section><section id="categories">
-  <h2>קטגוריות</h2>
-  <ul class="category-list">
-    <li><a href="#products" onclick="filterCategory('גברים')">גברים</a></li>
-    <li><a href="#products" onclick="filterCategory('תכשיטים')">תכשיטים</a></li>
-    <li><a href="#products" onclick="filterCategory('גאדג\'טים')">גאדג'טים</a></li>
-    <li><a href="#products" onclick="filterCategory('נעליים')">נעליים</a></li>
-    <li><a href="#products" onclick="filterCategory('אביזרים לכושר')">אביזרים לכושר</a></li>
-  </ul>
-</section>
-
-<section id="products">
-  <h2>המוצרים שלנו</h2>
-  <div id="productList">
-    <!-- מוצרים יופיעו כאן בצורה דינמית -->
-  </div>
-</section>
-
-<section id="reviews">
-  <h2>חוות דעת של לקוחות</h2>
-  <div class="review-box">
-    <p><strong>אור:</strong> מוצר מעולה! הגיע כמו בתמונה</p>
-  </div>
-  <div class="review-box">
-    <p><strong>רוני:</strong> חווית קנייה פשוטה ונוחה. ממליצה!</p>
-  </div>
-  <div class="review-box">
-    <p><strong>איתי:</strong> שירות לקוחות מצוין, עזרו לי בכל בעיה</p>
-  </div>
-</section>
-
-<section id="faq">
-  <h2>שאלות נפוצות</h2>
-  <details>
-    <summary>תוך כמה זמן המשלוח מגיע?</summary>
-    <p>המשלוח מגיע תוך עד 4 שבועות לסניף הדואר הקרוב לביתך.</p>
-  </details>
-  <details>
-    <summary>האם ניתן להחזיר מוצרים?</summary>
-    <p>ניתן להחזיר תוך 7 ימים כל עוד לא נעשה שימוש במוצר.</p>
-  </details>
-  <details>
-    <summary>איך אפשר לעקוב אחרי ההזמנה?</summary>
-    <p>לאחר ההזמנה תקבלו קישור לדואר ישראל: <a href="https://mypost.israelpost.co.il" target="_blank">מעקב הזמנה</a></p>
-  </details>
-</section>
-
-<section id="contact">
-  <h2>צור קשר</h2>
-  <form action="mailto:your-email@example.com" method="post" enctype="text/plain">
-    <label>שם מלא: <input type="text" name="name" required></label>
-    <label>טלפון: <input type="text" name="phone" required></label>
-    <label>מה הבעיה?: <textarea name="message" required></textarea></label>
-    <button type="submit">שלח</button>
-  </form>
-  <p>טלפון לשירות לקוחות: 0548673111</p>
-</section>
-
-  </main>  <footer>
-    <p>&copy; 2025 Style Next Tech | כל הזכויות שמורות</p>
-    <button onclick="scrollToTop()">חזור למעלה</button>
-  </footer>  <script>
-    const products = [
-      { name: "שעון חכם", category: "גאדג'טים", image: "images/224400.png" },
-      { name: "משקפיים חכמות", category: "גאדג'טים", image: "images/224659.png" },
-      { name: "שעון חכם 2", category: "גאדג'טים", image: "images/225122.png" }
-    ];
-
-    function renderProducts(list = products) {
-      const container = document.getElementById('productList');
-      container.innerHTML = '';
-      list.forEach(product => {
-        const el = document.createElement('div');
-        el.className = 'product';
-        el.innerHTML = `
-          <img src="${product.image}" alt="${product.name}" />
-          <h3>${product.name}</h3>
-          <p>קטגוריה: ${product.category}</p>
-          <a href="https://wa.me/972548673111" target="_blank">הזמן עכשיו</a>
-        `;
-        container.appendChild(el);
-      });
-    }
-
-    function filterCategory(category) {
-      renderProducts(products.filter(p => p.category === category));
-    }
-
-    document.getElementById('searchBox').addEventListener('input', e => {
-      const term = e.target.value;
-      renderProducts(products.filter(p => p.name.includes(term)));
-    });
-
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    renderProducts();
-  </script>  <style>
-    body {
-      font-family: sans-serif;
-      margin: 0;
-      background: #f9f9f9;
-    }
-    header, footer {
-      background: #222;
-      color: white;
-      padding: 10px;
-      text-align: center;
-    }
-    nav ul {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      list-style: none;
-      padding: 0;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-    }
-    section {
-      padding: 20px;
-      max-width: 800px;
-      margin: auto;
-    }
-    .product img {
-      width: 100px;
-    }
-    .product {
-      border: 1px solid #ddd;
-      padding: 10px;
-      margin: 10px;
-    }
-    .review-box {
-      background: #e0e0e0;
-      border-radius: 10px;
-      padding: 10px;
-      margin-bottom: 10px;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    form input, form textarea {
-      padding: 5px;
-      font-size: 1em;
-    }
-    button {
-      background: #333;
-      color: white;
-      padding: 10px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    .category-list {
-      display: flex;
-      gap: 15px;
-      justify-content: center;
-    }
-    #searchBox {
-      width: 80%;
-      padding: 10px;
-      font-size: 1em;
-      margin-top: 10px;
-    }
-  </style></body>
-</html
+  </header>  <section class="products" id="gadgets">
+    <div class="product">
+      <h3>שעון חכם</h3>
+      <img src="images/watch1.png" alt="שעון חכם">
+      <p>מוצר שקנו הרבה</p>
+      <a href="https://wa.me/972548673111" target="_blank">הזמן עכשיו</a>
+    </div>
+    <div class="product">
+      <h3>משקפיים חכמות</h3>
+      <img src="images/glasses.png" alt="משקפיים חכמות">
+      <p>מוצר שקנו הרבה</p>
+      <a href="https://wa.me/972548673111" target="_blank">הזמן עכשיו</a>
+    </div>
+  </section>  <section class="reviews" id="reviews">
+    <h2>חוות דעת</h2>
+    <div class="review-box">
+      <p>מוצר מעולה, הגיע תוך שבועיים! ממליצה בחום.</p>
+    </div>
+    <div class="review-box">
+      <p>קניתי כמתנה, השירות היה נהדר והמוצר איכותי.</p>
+    </div>
+  </section>  <section class="faq" id="faq">
+    <h2>שאלות נפוצות</h2>
+    <h3>תוך כמה זמן מגיע המשלוח?</h3>
+    <p>בדרך כלל עד 4 שבועות. המשלוח מסופק לסניף הדואר הקרוב לביתך.</p>
+    <h3>מהי מדיניות ההחזרות?</h3>
+    <p>ניתן להחזיר מוצר תוך 14 יום כל עוד לא נעשה בו שימוש.</p>
+    <h3>איך ניתן ליצור קשר?</h3>
+    <p>באמצעות טופס יצירת קשר בהמשך העמוד או בטלפון לשירות לקוחות.</p>
+  </section>  <section id="contact">
+    <h2>צור קשר</h2>
+    <form action="mailto:youremail@example.com" method="POST">
+      <input type="text" name="name" placeholder="שם מלא" required>
+      <input type="tel" name="phone" placeholder="טלפון" required>
+      <textarea name="message" placeholder="מה הבעיה או השאלה?" required></textarea>
+      <button type="submit">שלח</button>
+    </form>
+    <p>שירות לקוחות: 054-8673111</p>
+  </section>  <footer>
+    <p>&copy; 2025 Style Next Tech. כל הזכויות שמורות.</p>
+  </footer>
+</body></html>
