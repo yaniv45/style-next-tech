@@ -1,110 +1,369 @@
 <!DOCTYPE html>
-<html lang="he">
-
+<html lang="he" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="חנות האונליין Style Next Tech - גאדג'טים, תכשיטים, נעליים, ועוד. קנו עכשיו!">
-  <meta name="keywords" content="חנות, גאדג'טים, תכשיטים, נעליים, טכנולוגיה, Style Next Tech">
-  <meta name="author" content="יניב אסרף">
-  <title>Style Next Tech</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Style Next Tech - חנות גאדג'טים, אופנה ותכשיטים</title>
+  <meta name="description" content="Style Next Tech - החנות המובילה לגאדג'טים, אופנה, תכשיטים, נעליים ואביזרים לכושר. הזמנות דרך וואטסאפ ותשלום ביט." />
+  <meta name="keywords" content="גאדג'טים, תכשיטים, אופנה, נעליים, אביזרים לכושר, Style Next Tech, חנות ישראלית, קניות אונליין" />
+  <meta name="author" content="יניב אסרף" />
+  
+  <!-- Open Graph לשיתוף ברשתות חברתיות -->
+  <meta property="og:title" content="Style Next Tech - חנות גאדג'טים, אופנה ותכשיטים" />
+  <meta property="og:description" content="הזמינו גאדג'טים ותכשיטים באיכות גבוהה במחירים משתלמים" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yaniv45.github.io/style-next-tech/" />
+  <meta property="og:image" content="https://yaniv45.github.io/style-next-tech/images/logo.png" />
+  
+  <style>
+    /* עיצוב כללי */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0; padding: 0;
+      background-color: #fafafa;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #222;
+      color: #fff;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      cursor: default;
+      user-select: none;
+    }
+    nav {
+      margin-top: 10px;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 12px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+    nav ul li a:hover,
+    nav ul li a:focus {
+      background-color: #ff6f61;
+      outline: none;
+    }
 
+    main {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    /* כותרות */
+    h2 {
+      margin-bottom: 20px;
+      color: #222;
+      font-weight: 700;
+      font-size: 1.6rem;
+      border-bottom: 2px solid #ff6f61;
+      padding-bottom: 5px;
+    }
+
+    /* מוצרים */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      gap: 20px;
+    }
+    .product-card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease;
+    }
+    .product-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 5px 15px rgb(0 0 0 / 0.2);
+    }
+    .product-image {
+      width: 100%;
+      height: 180px;
+      object-fit: contain;
+      margin-bottom: 12px;
+      user-select: none;
+    }
+    .product-title {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin: 0 0 8px 0;
+      min-height: 48px;
+    }
+    .product-price {
+      color: #ff6f61;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .btn-order {
+      background-color: #ff6f61;
+      border: none;
+      color: white;
+      font-weight: 700;
+      padding: 10px;
+      text-align: center;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+    .btn-order:hover,
+    .btn-order:focus {
+      background-color: #e65c50;
+      outline: none;
+    }
+
+    /* FAQ */
+    .faq {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+      max-width: 900px;
+      margin: 40px auto;
+    }
+    .faq-item {
+      margin-bottom: 15px;
+    }
+    .faq-question {
+      font-weight: 700;
+      cursor: pointer;
+      position: relative;
+      padding-right: 20px;
+    }
+    .faq-question::after {
+      content: "+";
+      position: absolute;
+      right: 0;
+      top: 0;
+      font-weight: 700;
+      font-size: 1.2rem;
+      user-select: none;
+      transition: transform 0.3s ease;
+    }
+    .faq-question.active::after {
+      content: "-";
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      margin-top: 6px;
+      padding-right: 10px;
+    }
+    .faq-answer.show {
+      max-height: 200px; /* מתאים לתשובה */
+    }
+
+    /* טופס צור קשר */
+    form.contact-form {
+      background: #fff;
+      padding: 25px 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+      max-width: 600px;
+      margin: 40px auto;
+    }
+    form.contact-form label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+    form.contact-form input,
+    form.contact-form textarea {
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+      resize: vertical;
+    }
+    form.contact-form button {
+      background-color: #ff6f61;
+      color: white;
+      font-weight: 700;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+    form.contact-form button:hover,
+    form.contact-form button:focus {
+      background-color: #e65c50;
+      outline: none;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #222;
+      color: #ddd;
+      text-align: center;
+      padding: 20px 10px;
+      margin-top: 50px;
+      font-size: 0.9rem;
+      user-select: none;
+    }
+    footer a {
+      color: #ff6f61;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .product-image {
+        height: 140px;
+      }
+    }
+  </style>
+</head>
 <body>
   <header>
     <h1>Style Next Tech</h1>
-    <nav>
+    <nav aria-label="תפריט ראשי">
       <ul>
-        <li><a href="#home">בית</a></li>
-        <li><a href="#categories">קטגוריות</a></li>
-        <li><a href="#products">מוצרים</a></li>
-        <li><a href="#reviews">ביקורות</a></li>
-        <li><a href="#faq">שאלות נפוצות</a></li>
-        <li><a href="#contact">צור קשר</a></li>
+        <li><a href="#gadgets">גאדג'טים</a></li>
+        <li><a href="#jewelry">תכשיטים</a></li>
+        <li><a href="#men">גברים</a></li>
+        <li><a href="#shoes">נעליים</a></li>
+        <li><a href="#fitness">אביזרים לכושר</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <section id="home">
-      <h2>ברוכים הבאים לחנות Style Next Tech</h2>
-      <p>מוצרים נבחרים באיכות גבוהה - במחירים משתלמים</p>
-      <input type="text" id="search" placeholder="חפש מוצר...">
-    </section>
+    <section id="gadgets">
+      <h2>גאדג'טים מובילים</h2>
+      <div class="products-grid">
+        <article class="product-card" tabindex="0" aria-label="שעון חכם סמסונג">
+          <img src="https://yaniv45.github.io/style-next-tech/images/samsung-watch.jpg" alt="שעון חכם סמסונג" class="product-image" />
+          <h3 class="product-title">שעון חכם סמסונג</h3>
+          <p class="product-price">₪399</p>
+          <a href="https://wa.me/972500000000?text=אני%20מעוניין%20לרכוש%20שעון%20חכם%20סמסונג" class="btn-order" target="_blank" rel="noopener noreferrer">הזמן בוואטסאפ</a>
+        </article>
 
-    <section id="categories">
-      <h2>קטגוריות</h2>
-      <ul>
-        <li><a href="#products" onclick="filterCategory('גברים')">גברים</a></li>
-        <li><a href="#products" onclick="filterCategory('תכשיטים')">תכשיטים</a></li>
-        <li><a href="#products" onclick="filterCategory('גאדג\'טים')">גאדג'טים</a></li>
-        <li><a href="#products" onclick="filterCategory('נעליים')">נעליים</a></li>
-        <li><a href="#products" onclick="filterCategory('אביזרים לכושר')">אביזרים לכושר</a></li>
-      </ul>
-    </section>
+        <article class="product-card" tabindex="0" aria-label="משקפי שמש חכמים">
+          <img src="https://yaniv45.github.io/style-next-tech/images/smart-glasses.jpg" alt="משקפי שמש חכמים" class="product-image" />
+          <h3 class="product-title">משקפי שמש חכמים</h3>
+          <p class="product-price">₪299</p>
+          <a href="https://wa.me/972500000001?text=אני%20מעוניין%20לרכוש%20משקפי%20שמש%20חכמים" class="btn-order" target="_blank" rel="noopener noreferrer">הזמן בוואטסאפ</a>
+        </article>
 
-    <section id="products">
-      <h2>מוצרים</h2>
-      <div id="product-list">
-        <!-- כאן יתווספו המוצרים עם JavaScript -->
+        <!-- הוסף כאן עוד מוצרים בהתאם -->
       </div>
     </section>
 
-    <section id="reviews">
-      <h2>ביקורות לקוחות</h2>
-      <div class="review-box">
-        <p>״מוצר איכותי, הגיע בזמן - מאוד מרוצה!״ - דנה מ.</p>
-      </div>
-      <div class="review-box">
-        <p>״שירות לקוחות מעולה, בהחלט אזמין שוב״ - אורן ש.</p>
+    <section id="jewelry" style="margin-top: 50px;">
+      <h2>תכשיטים</h2>
+      <div class="products-grid">
+        <article class="product-card" tabindex="0" aria-label="שרשרת כסף עם תליון">
+          <img src="https://yaniv45.github.io/style-next-tech/images/silver-necklace.jpg" alt="שרשרת כסף עם תליון" class="product-image" />
+          <h3 class="product-title">שרשרת כסף עם תליון</h3>
+          <p class="product-price">₪150</p>
+          <a href="https://wa.me/972500000002?text=אני%20מעוניין%20לרכוש%20שרשרת%20כסף%20עם%20תליון" class="btn-order" target="_blank" rel="noopener noreferrer">הזמן בוואטסאפ</a>
+        </article>
+        <!-- הוסף עוד תכשיטים -->
       </div>
     </section>
 
-    <section id="faq">
+    <!-- הוסף את הקטגוריות האחרות במבנה דומה -->
+
+    <section id="faq" aria-label="שאלות נפוצות" style="margin-top: 60px;">
       <h2>שאלות נפוצות</h2>
-      <details>
-        <summary>מה זמן המשלוח?</summary>
-        <p>עד 4 שבועות. החבילה תגיע לסניף הדואר הקרוב לביתכם.</p>
-      </details>
-      <details>
-        <summary>האם ניתן לשלם באשראי?</summary>
-        <p>לא. התשלום דרך ביט בלבד.</p>
-      </details>
-      <details>
-        <summary>מאיפה מגיעים המוצרים?</summary>
-        <p>המוצרים נשלחים מהספקים שלנו דרך אלי אקספרס.</p>
-      </details>
-      <details>
-        <summary>איך אני עוקב אחרי ההזמנה?</summary>
-        <p>לאחר ההזמנה נשלח אליך מספר מעקב. ניתן לעקוב באתר <a href="https://mypost.israelpost.co.il/" target="_blank">Israel Post</a>.</p>
-      </details>
+      <div class="faq">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">כמה זמן לוקח לקבל את המוצרים?</button>
+          <div class="faq-answer" hidden>
+            <p>המשלוחים לוקחים בדרך כלל עד כחודש, המוצרים מגיעים לסניף הדואר הקרוב אליך.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">מהן אפשרויות התשלום?</button>
+          <div class="faq-answer" hidden>
+            <p>ניתן לשלם באמצעות ביט וקאשקאש בלבד.</p>
+          </div>
+        </div>
+        <!-- הוסף שאלות נוספות -->
+      </div>
     </section>
 
-    <section id="contact">
+    <section id="contact" style="margin-top: 60px;">
       <h2>צור קשר</h2>
-      <form onsubmit="sendForm(event)">
-        <label for="name">שם:</label>
-        <input type="text" id="name" required>
+      <form class="contact-form" action="https://formspree.io/f/yourformid" method="POST" aria-label="טופס צור קשר">
+        <label for="name">שם מלא</label>
+        <input type="text" id="name" name="name" required placeholder="הכנס את שמך" />
 
-        <label for="phone">טלפון:</label>
-        <input type="text" id="phone" required>
+        <label for="email">אימייל</label>
+        <input type="email" id="email" name="_replyto" required placeholder="example@mail.com" />
 
-        <label for="message">ההודעה שלך:</label>
-        <textarea id="message" required></textarea>
+        <label for="message">הודעה</label>
+        <textarea id="message" name="message" rows="5" required placeholder="כתוב כאן את ההודעה שלך"></textarea>
 
         <button type="submit">שלח</button>
       </form>
-      <p>טלפון לשירות לקוחות: 0548673111</p>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Style Next Tech. כל הזכויות שמורות.</p>
-    <button onclick="scrollToTop()">חזור למעלה</button>
+    <p>© 2025 Style Next Tech - כל הזכויות שמורות | טלפון: 050-0000000 | <a href="mailto:contact@stylenexttech.co.il">contact@stylenexttech.co.il</a></p>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    // סקריפט פשוט לפיצ'ר FAQ - פתיחה וסגירה
+    document.querySelectorAll('.faq-question').forEach(button => {
+      button.addEventListener('click', () => {
+        const expanded = button.getAttribute('aria-expanded') === 'true';
+        button.setAttribute('aria-expanded', !expanded);
+        const answer = button.nextElementSibling;
+        if (!expanded) {
+          answer.hidden = false;
+          answer.classList.add('show');
+          button.classList.add('active');
+        } else {
+          answer.hidden = true;
+          answer.classList.remove('show');
+          button.classList.remove('active');
+        }
+      });
+    });
+  </script>
 </body>
-
 </html>
