@@ -6,8 +6,23 @@
   <meta name="description" content="Style Next Tech - חנות אונליין למוצרים חכמים, אופנה וגאדג'טים. הזמנות ישירות דרך וואטסאפ ותשלום בביט.">
   <meta name="keywords" content="שעון חכם, משקפי שמש חכמות, גאדג'טים, כושר, תכשיטים, Style Next Tech">
   <meta name="author" content="יניב אסרף">
+  <meta name="robots" content="index, follow">
   <title>Style Next Tech</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; direction: rtl; background-color: #f8f9fa; color: #333; }
+    header { background-color: #004aad; color: white; padding: 1rem; text-align: center; }
+    nav ul { list-style: none; padding: 0; display: flex; justify-content: center; gap: 1rem; }
+    nav ul li a { color: white; text-decoration: none; font-weight: bold; }
+    section { padding: 2rem; }
+    .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+    .product, .review-box, form { background: white; padding: 1rem; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .product img { width: 100%; height: auto; border-radius: 10px; }
+    .review-box { margin-bottom: 1rem; border: 1px solid #ccc; }
+    form input, form textarea { width: 100%; padding: 0.5rem; margin-bottom: 1rem; border: 1px solid #ccc; border-radius: 5px; }
+    form button { background: #004aad; color: white; padding: 0.5rem 1rem; border: none; border-radius: 5px; cursor: pointer; }
+    footer { background: #eee; text-align: center; padding: 1rem; margin-top: 2rem; }
+  </style>
 </head>
 <body>
   <header>
@@ -25,8 +40,8 @@
   </header>
 
   <section id="home">
-    <h2>ברוכים הבאים לחנות שלנו</h2>
-    <p>ברוכים הבאים ל-Style Next Tech! כאן תמצאו מוצרים חכמים, טרנדיים, איכותיים, עם שירות אישי ותשלום קל.</p>
+    <h2>ברוכים הבאים ל-Style Next Tech</h2>
+    <p>חנות למוצרים חכמים, גאדג'טים, אופנה ואביזרי כושר. שירות אישי, תשלום נוח ומשלוח עד סניף הדואר הקרוב תוך עד 4 שבועות.</p>
   </section>
 
   <section id="categories">
@@ -52,21 +67,21 @@
       <div class="product">
         <img src="images/צילום מסך 2025-05-10 165510.png" alt="משקפי שמש חכמות">
         <h3>משקפי שמש חכמות</h3>
-        <p>מוצר שקנו הרבה</p>
+        <p>מוזיקה ושיחות בלחיצת כפתור</p>
         <a href="https://wa.me/972548673111" target="_blank">הזמן עכשיו</a>
       </div>
-      <!-- הוספת מוצרים נוספים דומה לקוד שלמעלה -->
+      <!-- שאר המוצרים יתווספו כאן -->
     </div>
   </section>
 
   <section id="reviews">
     <h2>ביקורות לקוחות</h2>
     <div class="review-box">
-      <p>מוצר מדהים! שירות מהיר ואמין.</p>
+      <p>המוצר הגיע מהר והאיכות מצוינת!</p>
       <span>- דוד מ.</span>
     </div>
     <div class="review-box">
-      <p>המוצר הגיע בדיוק כמו בתמונות. תודה!</p>
+      <p>שירות אדיב ומענה מהיר. ממליצה!</p>
       <span>- שירן ב.</span>
     </div>
   </section>
@@ -75,26 +90,34 @@
     <h2>שאלות נפוצות</h2>
     <details>
       <summary>תוך כמה זמן מגיע המשלוח?</summary>
-      <p>המשלוח לוקח לרוב עד ארבעה שבועות ומגיע לסניף הדואר הקרוב לביתך.</p>
+      <p>עד 4 שבועות לסניף הדואר הקרוב לביתך. אנחנו לא מתחייבים להגעה מהירה מאחר שהמשלוחים נשלחים מספקים מחו"ל.</p>
     </details>
     <details>
-      <summary>איך אפשר לשלם?</summary>
-      <p>ניתן לשלם באמצעות ביט או קאשקאש.</p>
+      <summary>איך משלמים?</summary>
+      <p>באמצעות ביט או קאשקאש לאחר הזמנה בוואטסאפ.</p>
     </details>
     <details>
-      <summary>איך מזמינים?</summary>
-      <p>לחצו על כפתור ההזמנה בוואטסאפ בעמוד המוצר.</p>
+      <summary>האם אפשר להחזיר מוצר?</summary>
+      <p>בהתאם למצב המוצר, ניתן לפנות לשירות לקוחות תוך 7 ימים ממועד קבלתו.</p>
+    </details>
+    <details>
+      <summary>איפה המשלוח מתקבל?</summary>
+      <p>בסניף הדואר הקרוב - לא עד הבית.</p>
+    </details>
+    <details>
+      <summary>האם יש אחריות על המוצר?</summary>
+      <p>אין אחריות רשמית, אך אנו עושים את מירב המאמצים לספק מוצרים איכותיים ושירות הוגן.</p>
     </details>
   </section>
 
   <section id="contact">
     <h2>צור קשר</h2>
-    <form action="mailto:your@email.com" method="post">
+    <form>
       <label for="name">שם:</label>
       <input type="text" id="name" name="name" required>
       <label for="phone">טלפון:</label>
       <input type="text" id="phone" name="phone" required>
-      <label for="message">מה הבעיה?</label>
+      <label for="message">ההודעה שלך:</label>
       <textarea id="message" name="message" required></textarea>
       <button type="submit">שלח</button>
     </form>
