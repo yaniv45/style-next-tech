@@ -1,256 +1,200 @@
-<!DOCTYPE html>
-<html lang="he" dir="rtl">
-
+<!DOCTYPE html><html lang="he">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Style Next Tech - חנות גאדג'טים ואביזרים</title>
-  <meta name="description" content="חנות לגאדג'טים, אביזרים, תכשיטים ונעליים - משלוחים לכל הארץ! קנייה בטוחה דרך וואטסאפ ותשלום בביט." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Rubik', sans-serif;
-      background-color: #f2f2f2;
-      color: #222;
-      line-height: 1.6;
+  <meta name="description" content="Style Next Tech - חנות אונליין לגאדג'טים, תכשיטים, נעליים ואביזרי כושר במחירים משתלמים!" />
+  <meta name="keywords" content="גאדג'טים, תכשיטים, נעליים, כושר, שעון חכם, חנות אונליין, style next tech" />
+  <meta name="author" content="יניב אסרף" />
+  <title>Style Next Tech</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Style Next Tech</h1>
+    <nav>
+      <ul>
+        <li><a href="#home">בית</a></li>
+        <li><a href="#categories">קטגוריות</a></li>
+        <li><a href="#products">מוצרים</a></li>
+        <li><a href="#reviews">חוות דעת</a></li>
+        <li><a href="#faq">שאלות נפוצות</a></li>
+        <li><a href="#contact">צור קשר</a></li>
+      </ul>
+    </nav>
+  </header>  <main>
+    <section id="home">
+      <h2>ברוכים הבאים ל-Style Next Tech</h2>
+      <p>החנות שלך למוצרים חכמים, סטייל, ותוספות מגניבות לחיים</p>
+      <input type="text" id="searchBox" placeholder="חפש מוצר..." />
+    </section><section id="categories">
+  <h2>קטגוריות</h2>
+  <ul class="category-list">
+    <li><a href="#products" onclick="filterCategory('גברים')">גברים</a></li>
+    <li><a href="#products" onclick="filterCategory('תכשיטים')">תכשיטים</a></li>
+    <li><a href="#products" onclick="filterCategory('גאדג\'טים')">גאדג'טים</a></li>
+    <li><a href="#products" onclick="filterCategory('נעליים')">נעליים</a></li>
+    <li><a href="#products" onclick="filterCategory('אביזרים לכושר')">אביזרים לכושר</a></li>
+  </ul>
+</section>
+
+<section id="products">
+  <h2>המוצרים שלנו</h2>
+  <div id="productList">
+    <!-- מוצרים יופיעו כאן בצורה דינמית -->
+  </div>
+</section>
+
+<section id="reviews">
+  <h2>חוות דעת של לקוחות</h2>
+  <div class="review-box">
+    <p><strong>אור:</strong> מוצר מעולה! הגיע כמו בתמונה</p>
+  </div>
+  <div class="review-box">
+    <p><strong>רוני:</strong> חווית קנייה פשוטה ונוחה. ממליצה!</p>
+  </div>
+  <div class="review-box">
+    <p><strong>איתי:</strong> שירות לקוחות מצוין, עזרו לי בכל בעיה</p>
+  </div>
+</section>
+
+<section id="faq">
+  <h2>שאלות נפוצות</h2>
+  <details>
+    <summary>תוך כמה זמן המשלוח מגיע?</summary>
+    <p>המשלוח מגיע תוך עד 4 שבועות לסניף הדואר הקרוב לביתך.</p>
+  </details>
+  <details>
+    <summary>האם ניתן להחזיר מוצרים?</summary>
+    <p>ניתן להחזיר תוך 7 ימים כל עוד לא נעשה שימוש במוצר.</p>
+  </details>
+  <details>
+    <summary>איך אפשר לעקוב אחרי ההזמנה?</summary>
+    <p>לאחר ההזמנה תקבלו קישור לדואר ישראל: <a href="https://mypost.israelpost.co.il" target="_blank">מעקב הזמנה</a></p>
+  </details>
+</section>
+
+<section id="contact">
+  <h2>צור קשר</h2>
+  <form action="mailto:your-email@example.com" method="post" enctype="text/plain">
+    <label>שם מלא: <input type="text" name="name" required></label>
+    <label>טלפון: <input type="text" name="phone" required></label>
+    <label>מה הבעיה?: <textarea name="message" required></textarea></label>
+    <button type="submit">שלח</button>
+  </form>
+  <p>טלפון לשירות לקוחות: 0548673111</p>
+</section>
+
+  </main>  <footer>
+    <p>&copy; 2025 Style Next Tech | כל הזכויות שמורות</p>
+    <button onclick="scrollToTop()">חזור למעלה</button>
+  </footer>  <script>
+    const products = [
+      { name: "שעון חכם", category: "גאדג'טים", image: "images/224400.png" },
+      { name: "משקפיים חכמות", category: "גאדג'טים", image: "images/224659.png" },
+      { name: "שעון חכם 2", category: "גאדג'טים", image: "images/225122.png" }
+    ];
+
+    function renderProducts(list = products) {
+      const container = document.getElementById('productList');
+      container.innerHTML = '';
+      list.forEach(product => {
+        const el = document.createElement('div');
+        el.className = 'product';
+        el.innerHTML = `
+          <img src="${product.image}" alt="${product.name}" />
+          <h3>${product.name}</h3>
+          <p>קטגוריה: ${product.category}</p>
+          <a href="https://wa.me/972548673111" target="_blank">הזמן עכשיו</a>
+        `;
+        container.appendChild(el);
+      });
     }
 
-    header {
-      background-color: #1a1a1a;
-      color: #fff;
-      padding: 20px;
+    function filterCategory(category) {
+      renderProducts(products.filter(p => p.category === category));
+    }
+
+    document.getElementById('searchBox').addEventListener('input', e => {
+      const term = e.target.value;
+      renderProducts(products.filter(p => p.name.includes(term)));
+    });
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    renderProducts();
+  </script>  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      background: #f9f9f9;
+    }
+    header, footer {
+      background: #222;
+      color: white;
+      padding: 10px;
       text-align: center;
     }
-
-    header h1 {
-      margin: 0;
-      font-size: 2.2rem;
-    }
-
-    nav {
+    nav ul {
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
-      background-color: #333;
+      gap: 15px;
+      list-style: none;
+      padding: 0;
     }
-
     nav a {
       color: white;
-      padding: 12px 20px;
       text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s;
     }
-
-    nav a:hover {
-      background-color: #1db954;
-    }
-
-    .hero {
-      background: url('https://images.unsplash.com/photo-1580910051070-20fbca2829fa?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
-      height: 260px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #fff;
-      font-size: 2rem;
-      font-weight: bold;
-      text-shadow: 2px 2px 6px #000;
-    }
-
-    .products, .reviews, .faq, .contact-form {
-      padding: 30px;
-      max-width: 1200px;
+    section {
+      padding: 20px;
+      max-width: 800px;
       margin: auto;
     }
-
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .product {
-      background-color: #fff;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-      text-align: center;
-      padding: 15px;
-    }
-
     .product img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 6px;
+      width: 100px;
     }
-
-    .product h3 {
-      margin: 10px 0 5px;
-      font-size: 1.2rem;
-    }
-
-    .product .price {
-      color: #1db954;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    .product a {
-      background-color: #1db954;
-      color: white;
-      padding: 10px 15px;
-      text-decoration: none;
-      border-radius: 5px;
-      display: inline-block;
-      margin-top: 10px;
-    }
-
-    .reviews blockquote {
-      background: #fff;
-      padding: 15px;
-      border-right: 5px solid #1db954;
-      margin-bottom: 20px;
-      border-radius: 5px;
-      font-style: italic;
-    }
-
-    .faq h3, .contact-form h3 {
-      margin-bottom: 10px;
-      color: #1a1a1a;
-    }
-
-    .faq details {
-      background: #fff;
-      margin-bottom: 10px;
+    .product {
+      border: 1px solid #ddd;
       padding: 10px;
-      border-radius: 6px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      margin: 10px;
     }
-
+    .review-box {
+      background: #e0e0e0;
+      border-radius: 10px;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
     form {
       display: flex;
       flex-direction: column;
       gap: 10px;
     }
-
-    input, textarea {
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-family: inherit;
+    form input, form textarea {
+      padding: 5px;
+      font-size: 1em;
     }
-
     button {
-      background: #1db954;
-      color: #fff;
-      border: none;
+      background: #333;
+      color: white;
       padding: 10px;
-      border-radius: 5px;
+      border: none;
+      border-radius: 8px;
       cursor: pointer;
     }
-
-    footer {
-      background-color: #1a1a1a;
-      color: #bbb;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-      font-size: 0.9rem;
+    .category-list {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
     }
-
-    @media (max-width: 600px) {
-      .hero {
-        font-size: 1.4rem;
-      }
+    #searchBox {
+      width: 80%;
+      padding: 10px;
+      font-size: 1em;
+      margin-top: 10px;
     }
-  </style>
-</head>
-
-<body>
-  <header>
-    <h1>Style Next Tech</h1>
-  </header>
-  <nav>
-    <a href="#gadget">גאדג'טים</a>
-    <a href="#jewelry">תכשיטים</a>
-    <a href="#shoes">נעליים</a>
-    <a href="#fitness">אביזרי כושר</a>
-    <a href="#men">גברים</a>
-    <a href="#faq">שאלות נפוצות</a>
-    <a href="#contact">צור קשר</a>
-  </nav>
-  <section class="hero">
-    ברוכים הבאים לחנות החדשנית ביותר בישראל!
-  </section>
-
-  <section class="products" id="gadget">
-    <div class="product">
-      <img src="https://cdn.shopify.com/s/files/1/0533/2089/products/Smartwatch_Fitness_Sport_Stylish_Unisex_Leather_Belt_-_Golden_White_350x.jpg?v=1612964345" alt="שעון חכם">
-      <h3>שעון חכם עם רצועת עור</h3>
-      <div class="price">₪399</div>
-      <a href="https://wa.me/972523135770?text=שלום,%20אני%20רוצה%20להזמין%20שעון%20חכם%20עם%20רצועת%20עור" target="_blank">הזמן עכשיו</a>
-    </div>
-    <div class="product">
-      <img src="https://cdn.shopify.com/s/files/1/0533/2089/products/Wireless_Earbuds_Pro_Black_350x.jpg?v=1612964346" alt="אוזניות אלחוטיות">
-      <h3>אוזניות אלחוטיות Pro</h3>
-      <div class="price">₪249</div>
-      <a href="https://wa.me/972523135770?text=שלום,%20אני%20רוצה%20להזמין%20אוזניות%20אלחוטיות%20Pro" target="_blank">הזמן עכשיו</a>
-    </div>
-  </section>
-
-  <section class="reviews">
-    <h3>ביקורות לקוחות</h3>
-    <blockquote>״השירות היה מעולה והמוצר הגיע כמו בתמונה. ממליץ בחום!״ – אלעד מ.</blockquote>
-    <blockquote>״הזמנתי צמיד כושר וקיבלתי אותו תוך 3 שבועות. עובד מצוין!״ – שירה ג.</blockquote>
-  </section>
-
-  <section class="faq" id="faq">
-    <h3>שאלות נפוצות</h3>
-    <details>
-      <summary>תוך כמה זמן מגיע המשלוח?</summary>
-      <p>המשלוחים מגיעים לרוב תוך 21–30 ימי עסקים לנקודת איסוף בדואר הקרוב.</p>
-    </details>
-    <details>
-      <summary>איך משלמים?</summary>
-      <p>אפשר לשלם דרך ביט או קאשקאש, לאחר יצירת קשר בוואטסאפ.</p>
-    </details>
-    <details>
-      <summary>יש אחריות?</summary>
-      <p>לא, אנחנו לא אחראים למוצרים – האחריות על הספק באלי אקספרס.</p>
-    </details>
-  </section>
-
-  <section class="contact-form" id="contact">
-    <h3>צור קשר</h3>
-    <form>
-      <input type="text" placeholder="שם מלא" required>
-      <input type="email" placeholder="אימייל" required>
-      <textarea rows="4" placeholder="ההודעה שלך" required></textarea>
-      <button type="submit">שלח</button>
-    </form>
-  </section>
-
-  <footer>
-    טלפון להזמנות: 054-867-3111 | כל הזכויות שמורות &copy; 2025 Style Next Tech
-  </footer>
-
-  <!--Start of Tawk.to Script-->
-  <script type="text/javascript">
-    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-    (function () {
-      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-      s1.async = true;
-      s1.src = 'https://embed.tawk.to/684d2f589a4b03190ad91a1a/1itmo1s9n';
-      s1.charset = 'UTF-8';
-      s1.setAttribute('crossorigin', '*');
-      s0.parentNode.insertBefore(s1, s0);
-    })();
-  </script>
-  <!--End of Tawk.to Script-->
-</body>
-</html>
+  </style></body>
+</html
